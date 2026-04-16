@@ -168,11 +168,11 @@
             <form class="contact-form" @submit.prevent="handleSubmit">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="name">Full Name</label>
+                        <label for="full_name">Full Name</label>
                         <input 
                           type="text" 
-                          id="name" 
-                          v-model="formData.name"
+                          id="full_name" 
+                          v-model="formData.full_name"
                           placeholder="Enter your full name" 
                           required>
                     </div>
@@ -186,18 +186,41 @@
                           required>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input 
-                      type="tel" 
-                      id="phone"
-                      v-model="formData.phone"
-                      placeholder="Enter your phone number" 
-                      required>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input 
+                          type="tel" 
+                          id="phone"
+                          v-model="formData.phone"
+                          placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input 
+                          type="text" 
+                          id="company"
+                          v-model="formData.company"
+                          placeholder="Company name (optional)">
+                    </div>
                 </div>
-                <button type="submit" class="submit-btn">
-                    <i class="fas fa-paper-plane"></i>
-                    Send Message
+                <div class="form-group">                                                                                                                                            
+                    <label for="notes">Message</label>
+                    <textarea 
+                      id="notes"
+                      v-model="formData.notes"
+                      placeholder="Tell us about your project..." 
+                      rows="4"></textarea>
+                </div>
+                <button type="submit" class="submit-btn" :disabled="isSubmitting">
+                    <template v-if="isSubmitting">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        Sending...
+                    </template>
+                    <template v-else>
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </template>
                 </button>
             </form>
         </div>
@@ -239,14 +262,15 @@ import NavbarSection from '@/components/NavbarSection.vue'
 import { ref } from 'vue'
 
 const formData = ref({
-  name: '',
+  full_name: '',
   email: '',
   phone: '',
-  service: '',
-  message: ''
+  company: '',
+  notes: ''
 })
 
 const openFaq = ref(null)
+const isSubmitting = ref(false)
 
 const contactFaqs = [
   {
@@ -263,15 +287,49 @@ const contactFaqs = [
   }
 ]
 
-const handleSubmit = () => {
-  alert('Thank you for your message! We will get back to you soon.')
-  formData.value = {
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
+const handleSubmit = async () => {
+  isSubmitting.value = true
+  try {
+    const response = await fetch('https://jaexlfmjjzpahdmlvhii.supabase.co/functions/v1/submit-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData.value)
+    })
+    const result = await response.json()
+    if (result.success) {
+      showNotification('Thank you! We\'ll be in touch soon.', 'success')
+      formData.value = {
+        full_name: '',
+        email: '',
+        phone: '',
+        company: '',
+        notes: ''
+      }
+    } else {
+      showNotification('Something went wrong. Please try again.', 'error')
+    }
+  } catch (error) {
+    showNotification('Network error. Please try again.', 'error')
+  } finally {
+    isSubmitting.value = false
   }
+}
+
+const showNotification = (message, type) => {
+  const notification = document.createElement('div')
+  notification.className = `notification notification-${type}`
+  notification.innerHTML = `
+    <div class="notification-content">
+      <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+      <span>${message}</span>
+    </div>
+  `
+  document.body.appendChild(notification)
+  setTimeout(() => notification.classList.add('show'), 10)
+  setTimeout(() => {
+    notification.classList.remove('show')
+    setTimeout(() => notification.remove(), 300)
+  }, 4000)
 }
 
 const toggleFaq = (index) => {
@@ -312,7 +370,7 @@ const toggleFaq = (index) => {
   height: 500px;
   top: -200px;
   right: -100px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.35) 0%, transparent 70%);
+   background: radial-gradient(circle, rgba(168, 85, 247, 0.35) 0%, transparent 70%);
   animation: float1 20s ease-in-out infinite;
 }
 
@@ -1006,6 +1064,88 @@ const toggleFaq = (index) => {
   .faq-answer p {
     padding: 0 16px 14px 66px;
     font-size: 0.85rem;
+  }
+}
+
+.contact-form textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 120px;
+  transition: all 0.3s ease;
+}
+
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #a855f7;
+  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.15);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.submit-btn:disabled:hover {
+  transform: none;
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+}
+
+.notification {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 9999;
+  transform: translateX(400px);
+  transition: transform 0.3s ease;
+}
+
+.notification.show {
+  transform: translateX(0);
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-weight: 500;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.notification-success {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+.notification-success .notification-content i {
+  font-size: 1.2rem;
+}
+
+.notification-error {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.notification-error .notification-content i {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .notification {
+    top: 20px;
+    right: 20px;
+    left: 20px;
+    transform: translateY(-100px);
+  }
+  
+  .notification.show {
+    transform: translateY(0);
   }
 }
 </style>

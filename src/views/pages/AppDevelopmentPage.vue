@@ -33,7 +33,7 @@
             <!-- Right Side: Visual (Phone Mockup) -->
             <div class="hero-right">
                 <div class="app-mockup-container">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/08/pic1-SXabtBDc.png"
+                    <img src="/images/mob1.png"
                         alt="E-commerce Mobile App Mockup" class="app-mockup">
 
                     <!-- Floating badges for premium feel -->
@@ -60,14 +60,14 @@
                 <div class="mockup-stack">
                     <!-- Main Phone Mockup -->
                     <div class="main-mockup">
-                        <img src="https://buydreamweb.com/wp-content/uploads/2025/08/pic1-C-pw_ivl.jpg"
+                        <img src="/images/mob2.jpg"
                             alt="Mobile App Interface" class="app-interface">
                     </div>
 
                     <!-- Floating Task Card -->
                     <div class="floating-card task-card">
                         <img style="height: 100%;
-  width: 100%;" src="https://buydreamweb.com/wp-content/uploads/2025/08/pic2-D7EvttKM.jpg" alt="">
+  width: 100%;" src="/images/mob3.jpg" alt="">
                     </div>
 
 
@@ -172,12 +172,12 @@
             <!-- Right Visual: Phone Mockup + Illustration -->
             <div class="innovations-visual">
                 <div class="mockup-wrapper">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/09/Gemini_Generated_Image_sdm0wssdm0wssdm0__1_-removebg-preview.png"
+                    <img src="/images/mob4.png"
                         alt="AquaGlam Beauty Hub App" class="app-mockup">
 
                     <!-- Floating Illustration Character -->
                     <div class="floating-character">
-                        <img src="https://buydreamweb.com/wp-content/uploads/2025/09/Gemini_Generated_Image_dpp73ydpp73ydpp7.png"
+                        <img src="/images/mob5.png"
                             alt="Illustration" class="character-img">
                     </div>
                 </div>
@@ -291,7 +291,7 @@
                 <!-- Mockup 1 -->
                 <div class="app-mockup-card">
                     <div class="mockup-frame">
-                        <img src="https://buydreamweb.com/wp-content/uploads/2025/09/unnamed.png"
+                        <img src="/images/mob6.png"
                             alt="Featured Collections Screen" class="mockup-img">
                     </div>
                     <div class="mockup-label">Featured Collections</div>
@@ -300,7 +300,7 @@
                 <!-- Mockup 2 -->
                 <div class="app-mockup-card">
                     <div class="mockup-frame">
-                        <img src="https://buydreamweb.com/wp-content/uploads/2025/09/Gemini_Generated_Image_z77j8nz77j8nz77j.png"
+                        <img src="/images/mob7.png"
                             alt="Beauty Hub Screen" class="mockup-img">
                     </div>
                     <div class="mockup-label">Your Beauty Hub</div>
@@ -309,7 +309,7 @@
                 <!-- Mockup 3 -->
                 <div class="app-mockup-card">
                     <div class="mockup-frame">
-                        <img src="https://buydreamweb.com/wp-content/uploads/2025/09/Gemini_Generated_Image_l5k08rl5k08rl5k0.png"
+                        <img src="/images/mob8.png"
                             alt="User Dashboard Screen" class="mockup-img">
                     </div>
                     <div class="mockup-label">Personalized Dashboard</div>
@@ -462,7 +462,7 @@
             <!-- Phone Mockup -->
             <div class="contact-visual">
                 <div class="phone-mockup">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/09/Gemini_Generated_Image_1no3wv1no3wv1no3-removebg-preview-1-723x1024.png"
+                    <img src="/images/mob9.png"
                         alt="Buy Dream Web App" class="mockup-image">
                 </div>
             </div>

@@ -36,7 +36,7 @@
       <div class="hero-visual">
         <div class="visual-card">
           <div class="visual-image-wrapper">
-            <img src="https://buydreamweb.com/wp-content/uploads/2025/10/modern-equipped-computer-lab-1-scaled.webp" alt="Modern digital workspace">
+            <img src="/images/home1.webp" alt="Modern digital workspace">
           </div>
           <div class="visual-overlay"></div>
         </div>
@@ -94,7 +94,7 @@
       <div class="visual-container">
         <div class="hero-showcase">
           <div class="showcase-main">
-            <img src="https://buydreamweb.com/wp-content/uploads/2025/07/dl.beatsnoop.com-high-cb2676348bd56a18ab.webp" alt="Digital Solutions">
+            <img src="/images/home2.webp" alt="Digital Solutions">
             <div class="showcase-overlay"></div>
           </div>
           <div class="showcase-floating-card card-1">
@@ -349,7 +349,7 @@
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="testimonial-text">"The custom website development from their team is outstanding. They delivered a stunning, responsive website that has significantly improved our online presence and conversions."</p>
                     <div class="client-info">
-                      <img src="https://buydreamweb.com/wp-content/uploads/2025/10/6-4-1.webp" alt="Jordan Lee">
+                      <img src="/images/testo1.webp" alt="Jordan Lee">
                       <div>
                         <h4>Jordan Lee</h4>
                         <p>Marketing Director, Global Reach Enterprises</p>
@@ -364,7 +364,7 @@
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="testimonial-text">"Their digital marketing services agency delivered campaigns that exceeded our expectations. Our ROI has increased by 150% and the team is always responsive and professional."</p>
                     <div class="client-info">
-                      <img src="https://buydreamweb.com/wp-content/uploads/2025/10/7-2-1.webp" alt="Taylor Morgan">
+                      <img src="/images/testo2.webp" alt="Taylor Morgan">
                       <div>
                         <h4>Taylor Morgan</h4>
                         <p>Operations Manager, Visionary Ventures</p>
@@ -384,7 +384,7 @@
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="testimonial-text">"Working with this team transformed our e-commerce presence. Sales increased by 200% within the first month. Their expertise in WooCommerce is unmatched."</p>
                     <div class="client-info">
-                      <img src="https://buydreamweb.com/wp-content/uploads/2025/10/8-2-1.webp" alt="Alex Chen">
+                      <img src="/images/testo3.webp" alt="Alex Chen">
                       <div>
                         <h4>Alex Chen</h4>
                         <p>Founder, TechStart Innovations</p>
@@ -547,13 +547,13 @@
       <div class="cta-visual">
         <div class="devices-wrapper">
           <div class="desktop-frame">
-            <img src="https://buydreamweb.com/wp-content/uploads/2025/09/web-inner-img-1.webp" alt="Desktop" class="desktop">
+            <img src="/images/home4.webp" alt="Desktop" class="desktop">
             <div class="browser-dots">
               <span></span><span></span><span></span>
             </div>
           </div>
           <div class="mobile-frame">
-            <img src="https://buydreamweb.com/wp-content/uploads/2025/07/dl.beatsnoop.com-high-cb2676348bd56a18ab.webp" alt="Mobile" class="mobile">
+            <img src="/images/home2.webp" alt="Mobile" class="mobile">
           </div>
           <div class="floating-badge">
             <i class="fas fa-award"></i>
@@ -606,7 +606,7 @@
       <div class="experts-grid">
         <div class="expert-card">
           <div class="expert-image-wrapper">
-            <img src="https://buydreamweb.com/wp-content/uploads/2025/10/ec2499a9-5f6e-4ab3-8fd0-0d93f7df9b66.webp" alt="William James">
+            <img src="/images/team1.webp" alt="William James">
             <div class="expert-overlay">
               <div class="expert-social">
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -627,7 +627,7 @@
 
         <div class="expert-card">
           <div class="expert-image-wrapper">
-            <img src="https://buydreamweb.com/wp-content/uploads/2025/10/2-3-1.webp" alt="Sarah Taylor">
+            <img src="/images/team2.webp" alt="Sarah Taylor">
             <div class="expert-overlay">
               <div class="expert-social">
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -648,7 +648,7 @@
 
         <div class="expert-card">
           <div class="expert-image-wrapper">
-            <img src="https://buydreamweb.com/wp-content/uploads/2025/10/3-3-1.webp" alt="Emma Ava">
+            <img src="/images/team3.webp" alt="Emma Ava">
             <div class="expert-overlay">
               <div class="expert-social">
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -669,7 +669,7 @@
 
         <div class="expert-card">
           <div class="expert-image-wrapper">
-            <img src="https://buydreamweb.com/wp-content/uploads/2025/10/4-3-1.webp" alt="John Trent">
+            <img src="/images/team4.webp" alt="John Trent">
             <div class="expert-overlay">
               <div class="expert-social">
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -701,7 +701,7 @@
         <div class="form-row">
           <div class="input-group">
             <i class="fas fa-user input-icon"></i>
-            <input type="text" placeholder="Enter your name" v-model="quoteForm.name" required>
+            <input type="text" placeholder="Enter your full name" v-model="quoteForm.full_name" required>
           </div>
           <div class="input-group">
             <i class="fas fa-envelope input-icon"></i>
@@ -709,12 +709,26 @@
           </div>
           <div class="input-group">
             <i class="fas fa-phone input-icon"></i>
-            <input type="tel" placeholder="Enter your phone number" v-model="quoteForm.phone" required>
+            <input type="tel" placeholder="Enter your phone number" v-model="quoteForm.phone">
+          </div>
+          <div class="input-group">
+            <i class="fas fa-building input-icon"></i>
+            <input type="text" placeholder="Company name (optional)" v-model="quoteForm.company">
           </div>
         </div>
-        <button type="submit" class="quote-btn">
-          <i class="fas fa-fire"></i>
-          Get Price Quote
+        <div class="input-group textarea-group">
+          <i class="fas fa-comment-dots input-icon"></i>
+          <textarea placeholder="Tell us about your project..." v-model="quoteForm.notes" rows="3"></textarea>
+        </div>
+        <button type="submit" class="quote-btn" :disabled="isSubmitting">
+          <template v-if="isSubmitting">
+            <i class="fas fa-spinner fa-spin"></i>
+            Submitting...
+          </template>
+          <template v-else>
+            <i class="fas fa-fire"></i>
+            Get Price Quote
+          </template>
         </button>
       </form>
     </div>
@@ -751,7 +765,7 @@
       </div>
 
       <div class="faq-image-wrapper">
-        <img src="https://buydreamweb.com/wp-content/uploads/2025/10/question-mark-query-information-support-service-graphic_53876-127470.webp" alt="FAQ">
+        <img src="/images/home3.webp" alt="FAQ">
         <div class="faq-image-overlay"></div>
         <div class="faq-stats">
           <div class="faq-stat">
@@ -783,7 +797,8 @@ import NavbarSection from '../../components/NavbarSection.vue'
 const currentSlide = ref(0)
 const progressWidth = ref(0)
 const openFaq = ref(null)
-const quoteForm = ref({ name: '', email: '', phone: '' })
+const quoteForm = ref({ full_name: '', email: '', phone: '', company: '', notes: '' })
+const isSubmitting = ref(false)
 
 const faqs = ref([
   {
@@ -841,9 +856,43 @@ const toggleFAQ = (index) => {
 }
 
 // Form Handlers
-const handleQuoteSubmit = () => {
-  alert("✅ Thank you! Your quote request has been received.\nWe'll contact you within 24 hours.")
-  quoteForm.value = { name: '', email: '', phone: '' }
+const handleQuoteSubmit = async () => {
+  isSubmitting.value = true
+  try {
+    const response = await fetch('https://jaexlfmjjzpahdmlvhii.supabase.co/functions/v1/submit-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(quoteForm.value)
+    })
+    const result = await response.json()
+    if (result.success) {
+      showNotification('Thank you! We\'ll be in touch soon.', 'success')
+      quoteForm.value = { full_name: '', email: '', phone: '', company: '', notes: '' }
+    } else {
+      showNotification('Something went wrong. Please try again.', 'error')
+    }
+  } catch (error) {
+    showNotification('Network error. Please try again.', 'error')
+  } finally {
+    isSubmitting.value = false
+  }
+}
+
+const showNotification = (message, type) => {
+  const notification = document.createElement('div')
+  notification.className = `notification notification-${type}`
+  notification.innerHTML = `
+    <div class="notification-content">
+      <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+      <span>${message}</span>
+    </div>
+  `
+  document.body.appendChild(notification)
+  setTimeout(() => notification.classList.add('show'), 10)
+  setTimeout(() => {
+    notification.classList.remove('show')
+    setTimeout(() => notification.remove(), 300)
+  }, 4000)
 }
 
 // Cleanup
@@ -4247,7 +4296,7 @@ onMounted(() => {
 /* ====================== CLOSE TO YOU SECTION ====================== */
 .close-to-you-section {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-    padding: 100px 6%;
+    padding: 120px 6%;
     color: white;
     position: relative;
     overflow: hidden;
@@ -4260,8 +4309,19 @@ onMounted(() => {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 50%);
     animation: pulse 15s ease-in-out infinite;
+}
+
+.close-to-you-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    right: -30%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+    animation: pulse 18s ease-in-out infinite reverse;
 }
 
 @keyframes pulse {
@@ -4270,7 +4330,7 @@ onMounted(() => {
 }
 
 .close-container {
-    max-width: 1280px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
     position: relative;
@@ -4278,10 +4338,10 @@ onMounted(() => {
 }
 
 .close-container h2 {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 3.2rem;
+    font-weight: 800;
     margin-bottom: 20px;
-    line-height: 1.2;
+    line-height: 1.15;
     background: linear-gradient(135deg, #ffffff 0%, #22d3ee 50%, #a855f7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -4289,100 +4349,129 @@ onMounted(() => {
 }
 
 .close-container p {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     color: #94a3b8;
-    margin-bottom: 50px;
-    max-width: 600px;
+    margin-bottom: 56px;
+    max-width: 580px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.7;
 }
 
 .quote-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    max-width: 900px;
-    margin: 0 auto;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 48px;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
 }
 
 .form-row {
-    display: flex;
-    gap: 16px;
-    width: 100%;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
 .input-group {
     position: relative;
-    flex: 1;
-    min-width: 250px;
+}
+
+.input-group.textarea-group {
+    grid-column: 1 / -1;
 }
 
 .input-icon {
     position: absolute;
     left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #94a3b8;
-    font-size: 1rem;
+    top: 22px;
+    color: #64748b;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
     z-index: 1;
+    pointer-events: none;
 }
 
-.quote-form input {
+.quote-form input,
+.quote-form textarea {
     width: 100%;
-    padding: 20px 20px 20px 50px;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
+    padding: 18px 20px 18px 54px;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
     font-size: 1rem;
+    font-family: inherit;
     outline: none;
-    background: rgba(255, 255, 255, 0.05);
-    color: white;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    background: rgba(15, 23, 42, 0.5);
+    color: #f8fafc;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     box-sizing: border-box;
 }
 
-.quote-form input::placeholder {
-    color: #94a3b8;
+.quote-form textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.6;
 }
 
-.quote-form input:focus {
+.quote-form input::placeholder,
+.quote-form textarea::placeholder {
+    color: #64748b;
+    transition: all 0.3s ease;
+}
+
+.quote-form input:focus,
+.quote-form textarea:focus {
     border-color: #22d3ee;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.1);
+    background: rgba(15, 23, 42, 0.7);
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.12), 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .quote-form input:focus + .input-icon,
+.quote-form textarea:focus + .input-icon,
 .input-group:focus-within .input-icon {
     color: #22d3ee;
+    transform: translateY(-2px);
+}
+
+.quote-form input:not(:placeholder-shown),
+.quote-form textarea:not(:placeholder-shown) {
+    border-color: rgba(255, 255, 255, 0.12);
 }
 
 .quote-btn {
     background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
     color: white;
     border: none;
-    padding: 20px 48px;
-    border-radius: 16px;
+    padding: 20px 52px;
+    border-radius: 14px;
     font-weight: 600;
     font-size: 1.1rem;
     white-space: nowrap;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
-    display: flex;
+    box-shadow: 0 10px 35px rgba(236, 72, 153, 0.35);
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 12px;
+    margin: 8px auto 0;
 }
 
-.quote-btn:hover {
+.quote-btn:hover:not(:disabled) {
     transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 20px 50px rgba(236, 72, 153, 0.4);
+    box-shadow: 0 20px 55px rgba(236, 72, 153, 0.45);
 }
 
-.quote-btn:active {
+.quote-btn:active:not(:disabled) {
     transform: translateY(-2px) scale(0.98);
+}
+
+.quote-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
 /* ====================== ABOUT & FAQ SECTION ====================== */
@@ -4745,20 +4834,20 @@ onMounted(() => {
     }
     
     .close-to-you-section {
-        padding: 80px 5%;
+        padding: 100px 5%;
     }
     
     .close-container h2 {
         font-size: 2.6rem;
     }
     
-    .form-row {
-        flex-direction: column;
-        gap: 12px;
+    .quote-form {
+        padding: 36px;
     }
     
-    .input-group {
-        min-width: 100%;
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 }
 
@@ -4768,7 +4857,7 @@ onMounted(() => {
     }
     
     .close-to-you-section {
-        padding: 70px 4%;
+        padding: 80px 4%;
     }
     
     .close-container h2 {
@@ -4778,21 +4867,25 @@ onMounted(() => {
     
     .close-container p {
         font-size: 1rem;
-        margin-bottom: 40px;
+        margin-bottom: 44px;
     }
     
     .quote-form {
-        gap: 20px;
+        padding: 28px;
+        border-radius: 22px;
+        gap: 16px;
     }
     
-    .quote-form input {
-        padding: 18px 18px 18px 46px;
+    .quote-form input,
+    .quote-form textarea {
+        padding: 16px 16px 16px 48px;
         font-size: 0.95rem;
     }
     
     .input-icon {
         left: 16px;
-        font-size: 0.95rem;
+        top: 18px;
+        font-size: 1rem;
     }
     
     .quote-btn {
@@ -4805,7 +4898,7 @@ onMounted(() => {
 
 @media (max-width: 480px) {
     .close-to-you-section {
-        padding: 60px 4%;
+        padding: 70px 4%;
     }
     
     .close-container h2 {
@@ -4814,53 +4907,163 @@ onMounted(() => {
     
     .close-container p {
         font-size: 0.95rem;
-        margin-bottom: 35px;
+        margin-bottom: 36px;
     }
     
-    .quote-form input {
-        padding: 16px 16px 16px 42px;
+    .quote-form {
+        padding: 22px;
+        border-radius: 18px;
+        gap: 14px;
+    }
+    
+    .quote-form input,
+    .quote-form textarea {
+        padding: 14px 14px 14px 44px;
         font-size: 0.9rem;
+        border-radius: 12px;
     }
     
     .input-icon {
         left: 14px;
+        top: 16px;
         font-size: 0.9rem;
     }
     
     .quote-btn {
         padding: 16px 32px;
         font-size: 0.95rem;
+        margin-top: 4px;
     }
 }
 
 @media (max-width: 360px) {
     .close-to-you-section {
-        padding: 50px 3%;
+        padding: 60px 3%;
     }
     
     .close-container h2 {
         font-size: 1.6rem;
     }
     
-    .close-container p {
-        font-size: 0.9rem;
-    }
-    
-    .quote-form input {
-        padding: 14px 14px 14px 38px;
-        font-size: 0.85rem;
-    }
-    
-    .input-icon {
-        left: 12px;
-        font-size: 0.85rem;
-    }
-    
-    .quote-btn {
-        padding: 14px 28px;
-        font-size: 0.9rem;
+    .quote-form {
+        padding: 18px;
     }
 }
 
+/* ====================== NOTIFICATION STYLES ====================== */
+.notification {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 9999;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-weight: 500;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.notification-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.notification-success .notification-content i {
+    font-size: 1.2rem;
+}
+
+.notification-error {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.notification-error .notification-content i {
+    font-size: 1.2rem;
+}
+
+/* Textarea styles */
+.textarea-group {
+    width: 100%;
+    max-width: 900px;
+}
+
+.quote-form textarea {
+    width: 100%;
+    padding: 20px 20px 20px 50px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    font-size: 1rem;
+    outline: none;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+.quote-form textarea::placeholder {
+    color: #94a3b8;
+}
+
+.quote-form textarea:focus {
+    border-color: #22d3ee;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.1);
+}
+
+/* Disabled button state */
+.quote-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.quote-btn:disabled:hover {
+    transform: none !important;
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+}
+
+@media (max-width: 768px) {
+    .notification {
+        top: 20px;
+        right: 20px;
+        left: 20px;
+        transform: translateY(-100px);
+    }
+    
+    .notification.show {
+        transform: translateY(0);
+    }
+    
+    .textarea-group {
+        min-width: 100%;
+    }
+    
+    .quote-form textarea {
+        padding: 18px 18px 18px 46px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .quote-form textarea {
+        padding: 16px 16px 16px 42px;
+        font-size: 0.9rem;
+    }
+}
 
     </style>

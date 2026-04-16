@@ -33,10 +33,10 @@
           <!-- Logo Showcase -->
           <div class="portfolio-logos">
             <div class="logo-preview-card">
-              <img src="https://buydreamweb.com/wp-content/uploads/2025/09/fight-esport-logo-template-E6S7AL5.jpg" alt="Deers Fight Logo">
+              <img src="/images/logo1.jpg" alt="Deers Fight Logo">
             </div>
             <div class="logo-preview-card">
-              <img src="https://buydreamweb.com/wp-content/uploads/2025/09/spartan-sport-mascot-logo-template-Z8PQ5EN-1536x1536-1-768x768.jpg" alt="Spartan Logo">
+              <img src="/images/logo2.jpg" alt="Spartan Logo">
             </div>
           </div>
 
@@ -197,44 +197,44 @@
             <!-- Row 1 -->
             <div class="portfolio-card">
                 <div class="portfolio-image">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/11/mockup.1-1024x810.webp" alt="ESPA Branding">
+                    <img src="/images/moc1.webp" alt="ESPA Branding">
                 </div>
             </div>
             <div class="portfolio-card">
                 <div class="portfolio-image">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/11/Wall_logo_mockup-1024x585.webp" alt="Athlete Branding">
+                    <img src="/images/moc2.webp" alt="Athlete Branding">
                 </div>
             </div>
             <div class="portfolio-card">
                 <div class="portfolio-image">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/11/Engineering-Innovations-LLC-Logo-2-Mockup-1024x678.webp" alt="BLVR Branding">
+                    <img src="/images/moc3.webp" alt="BLVR Branding">
                 </div>
             </div>
             <div class="portfolio-card">
                 <div class="portfolio-image">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/11/Logo-8.mockup-1024x576.webp" alt="Blue Corporate Kit">
+                    <img src="/images/moc4.webp" alt="Blue Corporate Kit">
                 </div>
             </div>
 
             <!-- Row 2 -->
             <div class="portfolio-card">
                 <div class="portfolio-image">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/11/NDC-Consulting1-Mockup-1024x712.webp" alt="Brown Corporate Kit">
+                    <img src="/images/moc5.webp" alt="Brown Corporate Kit">
                 </div>
             </div>
             <div class="portfolio-card">
                 <div class="portfolio-image">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/11/BizStartUK-Logo-3-Mockup-1024x682.webp" alt="Green Modern Kit">
+                    <img src="/images/moc6.webp" alt="Green Modern Kit">
                 </div>
             </div>
             <div class="portfolio-card">
                 <div class="portfolio-image">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/11/Go-Right-Motors-Logo-Mockup-1024x682.webp" alt="Orange Floral Kit">
+                    <img src="/images/moc7.webp" alt="Orange Floral Kit">
                 </div>
             </div>
             <div class="portfolio-card">
                 <div class="portfolio-image">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/11/Logo_Mockup-1024x682.webp" alt="Yellow Coffee Branding">
+                    <img src="/images/moc8.webp" alt="Yellow Coffee Branding">
                 </div>
             </div>
         </div>
@@ -326,7 +326,7 @@
             <p class="testimonial-text">"Buy Dream Web transformed our brand with a logo that perfectly captures our essence. Highly recommend!"</p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">
-                <img src="https://buydreamweb.com/wp-content/uploads/2025/09/tes1-smoll-image1.webp" alt="Sarah M">
+                <img src="/images/tes1.webp" alt="Sarah M">
               </div>
               <div class="testimonial-info">
                 <h4>Sarah M</h4>
@@ -342,7 +342,7 @@
             <p class="testimonial-text">"The team listened to our needs and delivered a logo that exceeded our expectations. Exceptional service!"</p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">
-                <img src="https://buydreamweb.com/wp-content/uploads/2025/09/tes1-smoll-image2.webp" alt="John D">
+                <img src="/images/tes2.webp" alt="John D">
               </div>
               <div class="testimonial-info">
                 <h4>John D</h4>
@@ -358,7 +358,7 @@
             <p class="testimonial-text">"Professional, creative, and delivered on time. Our new logo has received countless compliments from clients."</p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">
-                <img src="https://buydreamweb.com/wp-content/uploads/2025/09/tes1-smoll-image1.webp" alt="Michael R">
+                <img src="/images/tes3.webp" alt="Michael R">
               </div>
               <div class="testimonial-info">
                 <h4>Michael R</h4>
@@ -380,7 +380,7 @@
           <div class="form-row">
             <div class="input-group">
               <i class="fas fa-user input-icon"></i>
-              <input type="text" placeholder="Enter your name" v-model="quoteForm.name" required>
+              <input type="text" placeholder="Enter your full name" v-model="quoteForm.full_name" required>
             </div>
             <div class="input-group">
               <i class="fas fa-envelope input-icon"></i>
@@ -388,12 +388,26 @@
             </div>
             <div class="input-group">
               <i class="fas fa-phone input-icon"></i>
-              <input type="tel" placeholder="Enter your phone number" v-model="quoteForm.phone" required>
+              <input type="tel" placeholder="Enter your phone number" v-model="quoteForm.phone">
+            </div>
+            <div class="input-group">
+              <i class="fas fa-building input-icon"></i>
+              <input type="text" placeholder="Company name (optional)" v-model="quoteForm.company">
             </div>
           </div>
-          <button type="submit" class="quote-btn">
-            <i class="fas fa-fire"></i>
-            Get Price Quote
+          <div class="input-group textarea-group">
+            <i class="fas fa-comment-dots input-icon"></i>
+            <textarea placeholder="Tell us about your project..." v-model="quoteForm.notes" rows="3"></textarea>
+          </div>
+          <button type="submit" class="quote-btn" :disabled="isSubmitting">
+            <template v-if="isSubmitting">
+              <i class="fas fa-spinner fa-spin"></i>
+              Submitting...
+            </template>
+            <template v-else>
+              <i class="fas fa-fire"></i>
+              Get Price Quote
+            </template>
           </button>
         </form>
       </div>
@@ -436,13 +450,16 @@ import NavbarSection from '@/components/NavbarSection.vue'
 import FooterSection from '@/components/FooterSection.vue'
 
 const quoteForm = ref({
-  name: '',
+  full_name: '',
   email: '',
-  phone: ''
+  phone: '',
+  company: '',
+  notes: ''
 })
 
 const openFaqIndex = ref(null)
 const showScrollTop = ref(false)
+const isSubmitting = ref(false)
 
 const faqs = ref([
   {
@@ -461,9 +478,43 @@ const toggleFAQ = (index) => {
   openFaqIndex.value = openFaqIndex.value === index ? null : index
 }
 
-const handleQuoteSubmit = () => {
-  alert("✅ Thank you! Your quote request has been received.\nWe'll contact you within 24 hours.")
-  quoteForm.value = { name: '', email: '', phone: '' }
+const handleQuoteSubmit = async () => {
+  isSubmitting.value = true
+  try {
+    const response = await fetch('https://jaexlfmjjzpahdmlvhii.supabase.co/functions/v1/submit-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(quoteForm.value)
+    })
+    const result = await response.json()
+    if (result.success) {
+      showNotification('Thank you! We\'ll be in touch soon.', 'success')
+      quoteForm.value = { full_name: '', email: '', phone: '', company: '', notes: '' }
+    } else {
+      showNotification('Something went wrong. Please try again.', 'error')
+    }
+  } catch (error) {
+    showNotification('Network error. Please try again.', 'error')
+  } finally {
+    isSubmitting.value = false
+  }
+}
+
+const showNotification = (message, type) => {
+  const notification = document.createElement('div')
+  notification.className = `notification notification-${type}`
+  notification.innerHTML = `
+    <div class="notification-content">
+      <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+      <span>${message}</span>
+    </div>
+  `
+  document.body.appendChild(notification)
+  setTimeout(() => notification.classList.add('show'), 10)
+  setTimeout(() => {
+    notification.classList.remove('show')
+    setTimeout(() => notification.remove(), 300)
+  }, 4000)
 }
 
 const selectPlan = (plan) => {
@@ -497,11 +548,7 @@ onMounted(() => {
             --yellow: #facc15;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        
 
         html {
             scroll-behavior: smooth;
@@ -3406,10 +3453,10 @@ onMounted(() => {
     }
 }
 
-/* ====================== CLOSE TO YOU SECTION ====================== */
-.close-to-you-section {
+/* ====================== FAQ SECTION ====================== */
+.faq-section {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-    padding: 100px 6%;
+    padding: 120px 6%;
     color: white;
     position: relative;
     overflow: hidden;
@@ -3422,8 +3469,19 @@ onMounted(() => {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 50%);
     animation: pulse 15s ease-in-out infinite;
+}
+
+.close-to-you-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    right: -30%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+    animation: pulse 18s ease-in-out infinite reverse;
 }
 
 @keyframes pulse {
@@ -3432,7 +3490,7 @@ onMounted(() => {
 }
 
 .close-container {
-    max-width: 1280px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
     position: relative;
@@ -3440,10 +3498,10 @@ onMounted(() => {
 }
 
 .close-container h2 {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 3.2rem;
+    font-weight: 800;
     margin-bottom: 20px;
-    line-height: 1.2;
+    line-height: 1.15;
     background: linear-gradient(135deg, #ffffff 0%, #22d3ee 50%, #a855f7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -3451,103 +3509,254 @@ onMounted(() => {
 }
 
 .close-container p {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     color: #94a3b8;
-    margin-bottom: 50px;
-    max-width: 600px;
+    margin-bottom: 56px;
+    max-width: 580px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.7;
 }
 
 .quote-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    max-width: 900px;
-    margin: 0 auto;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 48px;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
 }
 
 .form-row {
-    display: flex;
-    gap: 16px;
-    width: 100%;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
 .input-group {
     position: relative;
-    flex: 1;
-    min-width: 250px;
+}
+
+.input-group.textarea-group {
+    grid-column: 1 / -1;
 }
 
 .input-icon {
     position: absolute;
     left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #94a3b8;
-    font-size: 1rem;
+    top: 22px;
+    color: #64748b;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
     z-index: 1;
+    pointer-events: none;
 }
 
-.quote-form input {
+.quote-form input,
+.quote-form textarea {
     width: 100%;
-    padding: 20px 20px 20px 50px;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
+    padding: 18px 20px 18px 54px;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
     font-size: 1rem;
+    font-family: inherit;
     outline: none;
-    background: rgba(255, 255, 255, 0.05);
-    color: white;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    background: rgba(15, 23, 42, 0.5);
+    color: #f8fafc;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     box-sizing: border-box;
 }
 
-.quote-form input::placeholder {
-    color: #94a3b8;
+.quote-form textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.6;
 }
 
-.quote-form input:focus {
+.quote-form input::placeholder,
+.quote-form textarea::placeholder {
+    color: #64748b;
+    transition: all 0.3s ease;
+}
+
+.quote-form input:focus,
+.quote-form textarea:focus {
     border-color: #22d3ee;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.1);
+    background: rgba(15, 23, 42, 0.7);
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.12), 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .quote-form input:focus + .input-icon,
+.quote-form textarea:focus + .input-icon,
 .input-group:focus-within .input-icon {
     color: #22d3ee;
+    transform: translateY(-2px);
+}
+
+.quote-form input:not(:placeholder-shown),
+.quote-form textarea:not(:placeholder-shown) {
+    border-color: rgba(255, 255, 255, 0.12);
 }
 
 .quote-btn {
     background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
     color: white;
     border: none;
-    padding: 20px 48px;
-    border-radius: 16px;
+    padding: 20px 52px;
+    border-radius: 14px;
     font-weight: 600;
     font-size: 1.1rem;
     white-space: nowrap;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
-    display: flex;
+    box-shadow: 0 10px 35px rgba(236, 72, 153, 0.35);
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 12px;
+    margin: 8px auto 0;
 }
 
-.quote-btn:hover {
+.quote-btn:hover:not(:disabled) {
     transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 20px 50px rgba(236, 72, 153, 0.4);
+    box-shadow: 0 20px 55px rgba(236, 72, 153, 0.45);
 }
 
-.quote-btn:active {
+.quote-btn:active:not(:disabled) {
     transform: translateY(-2px) scale(0.98);
 }
 
-  .faq-section {
+.quote-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .close-to-you-section {
+        padding: 80px 5%;
+    }
+    
+    .close-container h2 {
+        font-size: 2.4rem;
+    }
+    
+    .close-container p {
+        font-size: 1.1rem;
+    }
+    
+    .quote-form {
+        padding: 32px 28px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .close-to-you-section {
+        padding: 60px 4%;
+    }
+    
+    .close-container h2 {
+        font-size: 1.9rem;
+    }
+    
+    .close-container p {
+        font-size: 1rem;
+        margin-bottom: 32px;
+    }
+    
+    .quote-form {
+        padding: 24px 20px;
+        border-radius: 20px;
+        gap: 14px;
+    }
+    
+    .quote-form input,
+    .quote-form textarea {
+        padding: 14px 16px 14px 44px;
+        font-size: 0.95rem;
+        border-radius: 12px;
+    }
+    
+    .input-icon {
+        left: 14px;
+        top: 16px;
+        font-size: 0.95rem;
+    }
+    
+    .quote-btn {
+        padding: 16px 32px;
+        font-size: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .close-to-you-section {
+        padding: 50px 3%;
+    }
+    
+    .close-container h2 {
+        font-size: 1.6rem;
+    }
+    
+    .close-container p {
+        font-size: 0.9rem;
+        margin-bottom: 28px;
+    }
+    
+    .quote-form {
+        padding: 18px 16px;
+        border-radius: 16px;
+        gap: 12px;
+    }
+    
+    .quote-form input,
+    .quote-form textarea {
+        padding: 12px 14px 12px 40px;
+        font-size: 0.9rem;
+    }
+    
+    .input-icon {
+        left: 12px;
+        top: 14px;
+        font-size: 0.85rem;
+    }
+    
+    .quote-btn {
+        padding: 14px 24px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .close-to-you-section {
+        padding: 40px 3%;
+    }
+    
+    .close-container h2 {
+        font-size: 1.4rem;
+    }
+    
+    .quote-form {
+        padding: 14px;
+    }
+    
+    .quote-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+.faq-section {
             padding: 120px 6% 100px;
             background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #fdf4ff 100%);
             font-family: 'Poppins', sans-serif;
@@ -3857,6 +4066,102 @@ onMounted(() => {
                 box-shadow: 0 15px 35px rgba(236, 72, 153, 0.35);
                 transition: all 0.4s ease;
                 text-decoration: none;
+}
+
+.textarea-group {
+    width: 100%;
+}
+
+.quote-form textarea {
+    width: 100%;
+    padding: 20px 20px 20px 50px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    font-size: 1rem;
+    outline: none;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+.quote-form textarea::placeholder {
+    color: #94a3b8;
+}
+
+.quote-form textarea:focus {
+    border-color: #22d3ee;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.1);
+}
+
+.quote-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.quote-btn:disabled:hover {
+    transform: none !important;
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+}
+
+.notification {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 9999;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-weight: 500;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.notification-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.notification-success .notification-content i {
+    font-size: 1.2rem;
+}
+
+.notification-error {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.notification-error .notification-content i {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .notification {
+        top: 20px;
+        right: 20px;
+        left: 20px;
+        transform: translateY(-100px);
+    }
+    
+    .notification.show {
+        transform: translateY(0);
+    }
 }
 
     </style>

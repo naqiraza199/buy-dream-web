@@ -37,7 +37,7 @@
         <!-- Right Visual -->
         <div class="elevate-right">
             <div class="brand-mockup">
-                <img src="https://buydreamweb.com/wp-content/uploads/2025/09/print-bnr-1-img.webp" alt="Brand Identity Mockup">
+                <img src="/images/brand1.webp" alt="Brand Identity Mockup">
             </div>
         </div>
 
@@ -88,7 +88,7 @@
         <!-- Right Visual -->
         <div class="distinctive-right">
             <div class="distinctive-mockup">
-                <img src="https://buydreamweb.com/wp-content/uploads/2025/09/print-inner-img-1.webp" alt="Brand Identity Mockup - Business Cards, Letterhead, Envelope">
+                <img src="/images/brand2.webp" alt="Brand Identity Mockup - Business Cards, Letterhead, Envelope">
             </div>
             <div class="floating-badge">
                 <i class="fas fa-check-circle"></i>
@@ -124,44 +124,44 @@
             <!-- Row 1 -->
             <div class="portfolio-card">
                 <div class="portfolio-image">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/09/branding-img-1.webp" alt="ESPA Branding">
+                    <img src="/images/bmoc1.webp" alt="ESPA Branding">
                 </div>
             </div>
             <div class="portfolio-card">
                 <div class="portfolio-image">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/09/branding-img-6.webp" alt="Athlete Branding">
+                    <img src="/images/bmoc2.webp" alt="Athlete Branding">
                 </div>
             </div>
             <div class="portfolio-card">
                 <div class="portfolio-image">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/09/branding-img-2.webp" alt="BLVR Branding">
+                    <img src="/images/bmoc3.webp" alt="BLVR Branding">
                 </div>
             </div>
             <div class="portfolio-card">
                 <div class="portfolio-image">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/09/branding-img-3.webp" alt="Blue Corporate Kit">
+                    <img src="/images/bmoc4.webp" alt="Blue Corporate Kit">
                 </div>
             </div>
 
             <!-- Row 2 -->
             <div class="portfolio-card">
                 <div class="portfolio-image">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/09/branding-img-4.webp" alt="Brown Corporate Kit">
+                    <img src="/images/bmoc5.webp" alt="Brown Corporate Kit">
                 </div>
             </div>
             <div class="portfolio-card">
                 <div class="portfolio-image">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/09/branding-img-5.webp" alt="Green Modern Kit">
+                    <img src="/images/bmoc6.webp" alt="Green Modern Kit">
                 </div>
             </div>
             <div class="portfolio-card">
                 <div class="portfolio-image">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/09/branding-img-7.webp" alt="Orange Floral Kit">
+                    <img src="/images/bmoc7.webp" alt="Orange Floral Kit">
                 </div>
             </div>
             <div class="portfolio-card">
                 <div class="portfolio-image">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/09/branding-img-8.webp" alt="Yellow Coffee Branding">
+                    <img src="/images/bmoc8.webp" alt="Yellow Coffee Branding">
                 </div>
             </div>
         </div>
@@ -238,16 +238,16 @@
 
             <div class="showcase-visuals">
                 <div class="visual-card card-1">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/10/card-inner-img1.webp" alt="Business Cards Overlap">
+                    <img src="/images/bcard1.webp" alt="Business Cards Overlap">
                 </div>
                 <div class="visual-card card-2">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/10/brochure-inner-img1.webp" alt="Trifold Brochure">
+                    <img src="/images/bcard2.webp" alt="Trifold Brochure">
                 </div>
                 <div class="visual-card card-3">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/10/brochure-inner-img2.webp" alt="Company Newsletter Brochure">
+                    <img src="/images/bcard3.webp" alt="Company Newsletter Brochure">
                 </div>
                 <div class="visual-card card-4">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/10/flyer-inner-img2.webp" alt="Annual Report/Magazine">
+                    <img src="/images/bcard4.webp" alt="Annual Report/Magazine">
                 </div>
             </div>
 
@@ -318,7 +318,7 @@
         <!-- Right Visual -->
         <div class="distinctive-right">
             <div class="distinctive-mockup">
-                <img src="https://buydreamweb.com/wp-content/uploads/2025/10/Gemini_Generated_Image_ac57dzac57dzac57-1-e1760093050806.png" alt="Brand Identity Mockup - Business Cards, Letterhead, Envelope">
+                <img src="/images/brand3.png" alt="Brand Identity Mockup - Business Cards, Letterhead, Envelope">
             </div>
             <div class="decorative-circle"></div>
             <div class="decorative-circle"></div>
@@ -333,7 +333,7 @@
 
             <!-- Left Image -->
             <div class="core-image">
-                <img src="https://buydreamweb.com/wp-content/uploads/2025/10/identity-technology-set_1284-10818.webp" alt="Buy Dream Web Team" style="width:100%; border-radius: 24px; box-shadow: 0 30px 60px -15px rgba(0,0,0,0.25);">
+                <img src="/images/brand4.webp" alt="Buy Dream Web Team" style="width:100%; border-radius: 24px; box-shadow: 0 30px 60px -15px rgba(0,0,0,0.25);">
             </div>
 
             <!-- Right Content -->
@@ -402,7 +402,7 @@
                     </p>
                     <div class="client-info">
                         <div class="client-avatar">
-                            <img src="https://buydreamweb.com/wp-content/uploads/2025/09/tes1-smoll-image1.webp" alt="Sarah M">
+                            <img src="/images/tes1.webp" alt="Sarah M">
                         </div>
                         <div class="client-details">
                             <h4>Sarah M</h4>
@@ -427,7 +427,7 @@
                     </p>
                     <div class="client-info">
                         <div class="client-avatar">
-                            <img src="https://buydreamweb.com/wp-content/uploads/2025/09/tes1-smoll-image2.webp" alt="Michael R">
+                            <img src="/images/tes2.webp" alt="Michael R">
                         </div>
                         <div class="client-details">
                             <h4>Michael R</h4>
@@ -452,7 +452,7 @@
                     </p>
                     <div class="client-info">
                         <div class="client-avatar">
-                            <img src="https://buydreamweb.com/wp-content/uploads/2025/09/tes1-smoll-image3.webp" alt="Emily Chen">
+                            <img src="/images/tes3.webp" alt="Emily Chen">
                         </div>
                         <div class="client-details">
                             <h4>Emily Chen</h4>
@@ -465,7 +465,7 @@
             <!-- Right Visual -->
             <div class="testimonial-visual">
                 <div class="visual-wrapper">
-                    <img src="https://img.freepik.com/free-photo/cheerful-woman-with-speech-bubble_53876-119706.jpg?semt=ais_incoming&w=740&q=80" alt="Happy Clients">
+                    <img src="/images/web7.jpg" alt="Happy Clients">
                     <div class="visual-overlay">
                         <div class="rating-badge">
                             <i class="fas fa-star"></i>
@@ -554,7 +554,7 @@
             <div class="form-row">
                 <div class="input-group">
                     <i class="fas fa-user input-icon"></i>
-                    <input type="text" placeholder="Enter your name" v-model="quoteForm.name" required>
+                    <input type="text" placeholder="Enter your full name" v-model="quoteForm.full_name" required>
                 </div>
                 <div class="input-group">
                     <i class="fas fa-envelope input-icon"></i>
@@ -562,12 +562,26 @@
                 </div>
                 <div class="input-group">
                     <i class="fas fa-phone input-icon"></i>
-                    <input type="tel" placeholder="Enter your phone number" v-model="quoteForm.phone" required>
+                    <input type="tel" placeholder="Enter your phone number" v-model="quoteForm.phone">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-building input-icon"></i>
+                    <input type="text" placeholder="Company name (optional)" v-model="quoteForm.company">
                 </div>
             </div>
-            <button type="submit" class="quote-btn">
-                <i class="fas fa-fire"></i>
-                Get Price Quote
+            <div class="input-group textarea-group">
+                <i class="fas fa-comment-dots input-icon"></i>
+                <textarea placeholder="Tell us about your project..." v-model="quoteForm.notes" rows="3"></textarea>
+            </div>
+            <button type="submit" class="quote-btn" :disabled="isSubmitting">
+                <template v-if="isSubmitting">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    Submitting...
+                </template>
+                <template v-else>
+                    <i class="fas fa-fire"></i>
+                    Get Price Quote
+                </template>
             </button>
         </form>
     </div>
@@ -591,23 +605,64 @@ export default {
     },
     setup() {
         const quoteForm = ref({
-            name: '',
+            full_name: '',
             email: '',
-            phone: ''
+            phone: '',
+            company: '',
+            notes: ''
         });
 
-        const handleQuoteSubmit = () => {
-            alert("✅ Thank you! Your quote request has been received.\nWe'll contact you within 24 hours.");
-            quoteForm.value = {
-                name: '',
-                email: '',
-                phone: ''
-            };
+        const isSubmitting = ref(false);
+
+        const handleQuoteSubmit = async () => {
+            isSubmitting.value = true;
+            try {
+                const response = await fetch('https://jaexlfmjjzpahdmlvhii.supabase.co/functions/v1/submit-lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(quoteForm.value)
+                });
+                const result = await response.json();
+                if (result.success) {
+                    showNotification('Thank you! We\'ll be in touch soon.', 'success');
+                    quoteForm.value = {
+                        full_name: '',
+                        email: '',
+                        phone: '',
+                        company: '',
+                        notes: ''
+                    };
+                } else {
+                    showNotification('Something went wrong. Please try again.', 'error');
+                }
+            } catch (error) {
+                showNotification('Network error. Please try again.', 'error');
+            } finally {
+                isSubmitting.value = false;
+            }
+        };
+
+        const showNotification = (message, type) => {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.classList.add('show'), 10);
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => notification.remove(), 300);
+            }, 4000);
         };
 
         return {
             quoteForm,
-            handleQuoteSubmit
+            handleQuoteSubmit,
+            isSubmitting
         };
     }
 }
@@ -3279,7 +3334,7 @@ body {
 /* ====================== CLOSE TO YOU SECTION ====================== */
 .close-to-you-section {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-    padding: 100px 6%;
+    padding: 120px 6%;
     color: white;
     position: relative;
     overflow: hidden;
@@ -3292,8 +3347,19 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 50%);
     animation: pulse 15s ease-in-out infinite;
+}
+
+.close-to-you-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    right: -30%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+    animation: pulse 18s ease-in-out infinite reverse;
 }
 
 @keyframes pulse {
@@ -3311,7 +3377,7 @@ body {
 }
 
 .close-container {
-    max-width: 1280px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
     position: relative;
@@ -3319,10 +3385,10 @@ body {
 }
 
 .close-container h2 {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 3.2rem;
+    font-weight: 800;
     margin-bottom: 20px;
-    line-height: 1.2;
+    line-height: 1.15;
     background: linear-gradient(135deg, #ffffff 0%, #22d3ee 50%, #a855f7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -3330,48 +3396,252 @@ body {
 }
 
 .close-container p {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     color: #94a3b8;
-    margin-bottom: 50px;
-    max-width: 600px;
+    margin-bottom: 56px;
+    max-width: 580px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.7;
 }
 
 .quote-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    max-width: 900px;
-    margin: 0 auto;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 48px;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
 }
 
 .form-row {
-    display: flex;
-    gap: 16px;
-    width: 100%;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
 .input-group {
     position: relative;
-    flex: 1;
-    min-width: 250px;
+}
+
+.input-group.textarea-group {
+    grid-column: 1 / -1;
 }
 
 .input-icon {
     position: absolute;
     left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #94a3b8;
-    font-size: 1rem;
+    top: 22px;
+    color: #64748b;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
     z-index: 1;
+    pointer-events: none;
 }
 
-.quote-form input {
+.quote-form input,
+.quote-form textarea {
+    width: 100%;
+    padding: 18px 20px 18px 54px;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    background: rgba(15, 23, 42, 0.5);
+    color: #f8fafc;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+}
+
+.quote-form textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.quote-form input::placeholder,
+.quote-form textarea::placeholder {
+    color: #64748b;
+}
+
+.quote-form input:focus,
+.quote-form textarea:focus {
+    border-color: #22d3ee;
+    background: rgba(15, 23, 42, 0.7);
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.12), 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.quote-form input:focus + .input-icon,
+.quote-form textarea:focus + .input-icon,
+.input-group:focus-within .input-icon {
+    color: #22d3ee;
+    transform: translateY(-2px);
+}
+
+.quote-btn {
+    background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
+    color: white;
+    border: none;
+    padding: 20px 52px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 35px rgba(236, 72, 153, 0.35);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 8px auto 0;
+}
+
+.quote-btn:hover:not(:disabled) {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 55px rgba(236, 72, 153, 0.45);
+}
+
+.quote-btn:active:not(:disabled) {
+    transform: translateY(-2px) scale(0.98);
+}
+
+.quote-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .close-to-you-section {
+        padding: 80px 5%;
+    }
+    
+    .close-container h2 {
+        font-size: 2.4rem;
+    }
+    
+    .close-container p {
+        font-size: 1.1rem;
+    }
+    
+    .quote-form {
+        padding: 32px 28px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .close-to-you-section {
+        padding: 60px 4%;
+    }
+    
+    .close-container h2 {
+        font-size: 1.9rem;
+    }
+    
+    .close-container p {
+        font-size: 1rem;
+        margin-bottom: 32px;
+    }
+    
+    .quote-form {
+        padding: 24px 20px;
+        border-radius: 20px;
+        gap: 14px;
+    }
+    
+    .quote-form input,
+    .quote-form textarea {
+        padding: 14px 16px 14px 44px;
+        font-size: 0.95rem;
+        border-radius: 12px;
+    }
+    
+    .input-icon {
+        left: 14px;
+        top: 16px;
+        font-size: 0.95rem;
+    }
+    
+    .quote-btn {
+        padding: 16px 32px;
+        font-size: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .close-to-you-section {
+        padding: 50px 3%;
+    }
+    
+    .close-container h2 {
+        font-size: 1.6rem;
+    }
+    
+    .close-container p {
+        font-size: 0.9rem;
+        margin-bottom: 28px;
+    }
+    
+    .quote-form {
+        padding: 18px 16px;
+        border-radius: 16px;
+        gap: 12px;
+    }
+    
+    .quote-form input,
+    .quote-form textarea {
+        padding: 12px 14px 12px 40px;
+        font-size: 0.9rem;
+    }
+    
+    .input-icon {
+        left: 12px;
+        top: 14px;
+        font-size: 0.85rem;
+    }
+    
+    .quote-btn {
+        padding: 14px 24px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .close-to-you-section {
+        padding: 40px 3%;
+    }
+    
+    .close-container h2 {
+        font-size: 1.4rem;
+    }
+    
+    .quote-form {
+        padding: 14px;
+    }
+    
+    .quote-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+.textarea-group {
+    width: 100%;
+}
+
+.quote-form textarea {
     width: 100%;
     padding: 20px 20px 20px 50px;
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -3383,46 +3653,83 @@ body {
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     box-sizing: border-box;
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
 }
 
-.quote-form input::placeholder {
+.quote-form textarea::placeholder {
     color: #94a3b8;
 }
 
-.quote-form input:focus {
+.quote-form textarea:focus {
     border-color: #22d3ee;
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.1);
 }
 
-.quote-form input:focus+.input-icon,
-.input-group:focus-within .input-icon {
-    color: #22d3ee;
+.quote-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
 }
 
-.quote-btn {
-    background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
-    color: white;
-    border: none;
-    padding: 20px 48px;
-    border-radius: 16px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    white-space: nowrap;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+.quote-btn:disabled:hover {
+    transform: none !important;
     box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+}
+
+.notification {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 9999;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification-content {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-weight: 500;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.quote-btn:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 20px 50px rgba(236, 72, 153, 0.4);
+.notification-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
 }
 
-.quote-btn:active {
-    transform: translateY(-2px) scale(0.98);
+.notification-success .notification-content i {
+    font-size: 1.2rem;
+}
+
+.notification-error {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.notification-error .notification-content i {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .notification {
+        top: 20px;
+        right: 20px;
+        left: 20px;
+        transform: translateY(-100px);
+    }
+    
+    .notification.show {
+        transform: translateY(0);
+    }
 }
 </style>

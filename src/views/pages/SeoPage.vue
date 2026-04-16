@@ -378,7 +378,7 @@
                     <div class="image-card">
                         <span class="image-badge">Strategy</span>
                         <div class="image-inner">
-                            <img src="https://buydreamweb.com/wp-content/uploads/2025/10/work-image-1.webp"
+                            <img src="/images/seo1.webp"
                                 alt="SEO Strategy Meeting" class="solution-img">
                             <div class="image-label">Team Planning Session</div>
                         </div>
@@ -386,7 +386,7 @@
                     <div class="image-card">
                         <span class="image-badge">Analytics</span>
                         <div class="image-inner">
-                            <img src="https://buydreamweb.com/wp-content/uploads/2025/10/work-image-2.webp"
+                            <img src="/images/seo2.webp"
                                 alt="SEO Analytics Dashboard" class="solution-img">
                             <div class="image-label">Real-Time Dashboard</div>
                         </div>
@@ -474,7 +474,7 @@
             <!-- Right Visual -->
             <div class="why-visual">
                 <div class="visual-wrapper">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/10/why-choose-image-1.png"
+                    <img src="/images/seo3.png"
                         alt="SEO Expert" class="expert-image">
 
                     <div class="experience-badge">
@@ -741,7 +741,7 @@ to <br> you as possible</h2>
         <div class="form-row">
           <div class="input-group">
             <i class="fas fa-user input-icon"></i>
-            <input type="text" placeholder="Enter your name" v-model="quoteForm.name" required>
+            <input type="text" placeholder="Enter your full name" v-model="quoteForm.full_name" required>
           </div>
           <div class="input-group">
             <i class="fas fa-envelope input-icon"></i>
@@ -749,12 +749,26 @@ to <br> you as possible</h2>
           </div>
           <div class="input-group">
             <i class="fas fa-phone input-icon"></i>
-            <input type="tel" placeholder="Enter your phone number" v-model="quoteForm.phone" required>
+            <input type="tel" placeholder="Enter your phone number" v-model="quoteForm.phone">
+          </div>
+          <div class="input-group">
+            <i class="fas fa-building input-icon"></i>
+            <input type="text" placeholder="Company name (optional)" v-model="quoteForm.company">
           </div>
         </div>
-        <button type="submit" class="quote-btn">
-          <i class="fas fa-fire"></i>
-          Get Price Quote
+        <div class="input-group textarea-group">
+          <i class="fas fa-comment-dots input-icon"></i>
+          <textarea placeholder="Tell us about your project..." v-model="quoteForm.notes" rows="3"></textarea>
+        </div>
+        <button type="submit" class="quote-btn" :disabled="isSubmitting">
+          <template v-if="isSubmitting">
+            <i class="fas fa-spinner fa-spin"></i>
+            Submitting...
+          </template>
+          <template v-else>
+            <i class="fas fa-fire"></i>
+            Get Price Quote
+          </template>
         </button>
       </form>
     </div>
@@ -768,11 +782,46 @@ import { ref, onMounted } from 'vue'
 import FooterSection from '@/components/FooterSection.vue';
 import NavbarSection from '@/components/NavbarSection.vue';
 
-const quoteForm = ref({ name: '', email: '', phone: '' })
+const quoteForm = ref({ full_name: '', email: '', phone: '', company: '', notes: '' })
+const isSubmitting = ref(false)
 
-const handleQuoteSubmit = () => {
-  alert("✅ Thank you! Your quote request has been received.\nWe'll contact you within 24 hours.")
-  quoteForm.value = { name: '', email: '', phone: '' }
+const handleQuoteSubmit = async () => {
+  isSubmitting.value = true
+  try {
+    const response = await fetch('https://jaexlfmjjzpahdmlvhii.supabase.co/functions/v1/submit-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(quoteForm.value)
+    })
+    const result = await response.json()
+    if (result.success) {
+      showNotification('Thank you! We\'ll be in touch soon.', 'success')
+      quoteForm.value = { full_name: '', email: '', phone: '', company: '', notes: '' }
+    } else {
+      showNotification('Something went wrong. Please try again.', 'error')
+    }
+  } catch (error) {
+    showNotification('Network error. Please try again.', 'error')
+  } finally {
+    isSubmitting.value = false
+  }
+}
+
+const showNotification = (message, type) => {
+  const notification = document.createElement('div')
+  notification.className = `notification notification-${type}`
+  notification.innerHTML = `
+    <div class="notification-content">
+      <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+      <span>${message}</span>
+    </div>
+  `
+  document.body.appendChild(notification)
+  setTimeout(() => notification.classList.add('show'), 10)
+  setTimeout(() => {
+    notification.classList.remove('show')
+    setTimeout(() => notification.remove(), 300)
+  }, 4000)
 }
 
 const toggleFAQ = (btn) => {
@@ -3756,6 +3805,7 @@ export default {
     gap: 24px;
     max-width: 900px;
     margin: 0 auto;
+    padding: 25px;
 }
 
 .form-row {
@@ -3835,5 +3885,101 @@ export default {
 
 .quote-btn:active {
     transform: translateY(-2px) scale(0.98);
+}
+
+.textarea-group {
+    width: 100%;
+}
+
+.quote-form textarea {
+    width: 100%;
+    padding: 20px 20px 20px 50px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    font-size: 1rem;
+    outline: none;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+.quote-form textarea::placeholder {
+    color: #94a3b8;
+}
+
+.quote-form textarea:focus {
+    border-color: #22d3ee;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.1);
+}
+
+.quote-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.quote-btn:disabled:hover {
+    transform: none !important;
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+}
+
+.notification {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 9999;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-weight: 500;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.notification-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.notification-success .notification-content i {
+    font-size: 1.2rem;
+}
+
+.notification-error {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.notification-error .notification-content i {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .notification {
+        top: 20px;
+        right: 20px;
+        left: 20px;
+        transform: translateY(-100px);
+    }
+    
+    .notification.show {
+        transform: translateY(0);
+    }
 }
     </style>

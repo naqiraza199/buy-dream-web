@@ -82,7 +82,7 @@
         
         <div class="about-visual">
           <div class="visual-card">
-            <img src="https://buydreamweb.com/wp-content/uploads/2025/07/about-2.webp" alt="Buy Dream Web Team">
+            <img src="/images/about1.webp" alt="Buy Dream Web Team">
           </div>
           <div class="experience-badge">
             <div class="badge-icon">
@@ -188,7 +188,7 @@
       <div class="team-grid">
         <div class="team-card">
           <div class="team-image">
-            <img src="https://buydreamweb.com/wp-content/uploads/2025/10/ec2499a9-5f6e-4ab3-8fd0-0d93f7df9b66.webp" alt="William James">
+            <img src="/images/team1.webp" alt="William James">
             <div class="team-overlay">
               <div class="social-links">
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -202,7 +202,7 @@
         
         <div class="team-card">
           <div class="team-image">
-            <img src="https://buydreamweb.com/wp-content/uploads/2025/10/2-3-1.webp" alt="Sarah Taylor">
+            <img src="/images/team2.webp" alt="Sarah Taylor">
             <div class="team-overlay">
               <div class="social-links">
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -216,7 +216,7 @@
         
         <div class="team-card">
           <div class="team-image">
-            <img src="https://buydreamweb.com/wp-content/uploads/2025/10/3-3-1.webp" alt="Emma Ava">
+            <img src="/images/team3.webp" alt="Emma Ava">
             <div class="team-overlay">
               <div class="social-links">
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -230,7 +230,7 @@
         
         <div class="team-card">
           <div class="team-image">
-            <img src="https://buydreamweb.com/wp-content/uploads/2025/10/4-3-1.webp" alt="John Trent">
+            <img src="/images/team4.webp" alt="John Trent">
             <div class="team-overlay">
               <div class="social-links">
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>

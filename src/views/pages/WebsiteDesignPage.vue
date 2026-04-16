@@ -35,7 +35,7 @@
 
         <div class="hero-visual">
             <div class="visual-card">
-                <img src="https://buydreamweb.com/wp-content/uploads/2025/09/web-bnr-1-img.webp" alt="Modern digital workspace" style="width:100%; height:auto;">
+                <img src="/images/web1.webp" alt="Modern digital workspace" style="width:100%; height:auto;">
             </div>
 
             <i class="fas fa-globe floating-icon icon1"></i>
@@ -64,7 +64,7 @@
                 <!-- Project 1 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://buydreamweb.com/wp-content/uploads/2025/09/Psd-768x513.jpg" alt="PortPro - Logistics Platform">
+                        <img src="/images/web2.jpg" alt="PortPro - Logistics Platform">
                         <div class="project-overlay">
                             <h3>PortPro - Logistics Platform</h3>
                             <p>Built exclusively for drayage carriers with real-time tracking and smart scheduling.
@@ -77,7 +77,7 @@
                 <!-- Project 2 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://buydreamweb.com/wp-content/uploads/2025/09/Mockup5-768x557.jpg" alt="School Bag E-commerce Store">
+                        <img src="/images/web3.jpg" alt="School Bag E-commerce Store">
                         <div class="project-overlay">
                             <h3>School Bag E-commerce Store</h3>
                             <p>Personalized school bags store with vibrant design and seamless shopping experience.
@@ -90,7 +90,7 @@
                 <!-- Project 3 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://buydreamweb.com/wp-content/uploads/2025/09/1000-Mockup-768x419.jpg" alt="Driver Mobile App">
+                        <img src="/images/web4.jpg" alt="Driver Mobile App">
                         <div class="project-overlay">
                             <h3>Driver Mobile App</h3>
                             <p>Professional driver management app with messaging, leads, and document scanning.</p>
@@ -102,7 +102,7 @@
                 <!-- Project 2 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://buydreamweb.com/wp-content/uploads/2025/09/23126584_202-768x598.jpg" alt="School Bag E-commerce Store">
+                        <img src="/images/web5.jpg" alt="School Bag E-commerce Store">
                         <div class="project-overlay">
                             <h3>School Bag E-commerce Store</h3>
                             <p>Personalized school bags store with vibrant design and seamless shopping experience.
@@ -115,7 +115,7 @@
                 <!-- Project 3 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://buydreamweb.com/wp-content/uploads/2025/09/3000-Mockup-768x538.jpg" alt="Driver Mobile App">
+                        <img src="/images/web6.jpg" alt="Driver Mobile App">
                         <div class="project-overlay">
                             <h3>Driver Mobile App</h3>
                             <p>Professional driver management app with messaging, leads, and document scanning.</p>
@@ -193,7 +193,7 @@
 
         <!-- Right Visual -->
         <div class="innovation-visual">
-            <img src="https://buydreamweb.com/wp-content/uploads/2025/09/web-inner-img-1.webp" alt="Web & App Mockups" class="main-device">
+            <img src="/images/home4.webp" alt="Web & App Mockups" class="main-device">
         </div>
     </div>
 </section>
@@ -212,7 +212,7 @@
         <div class="why-content">
             <!-- Left Image -->
             <div class="why-image">
-                <img src="https://buydreamweb.com/wp-content/uploads/2025/09/choose1-image.webp" alt="Laptop with analytics">
+                <img src="/images/web7.webp" alt="Laptop with analytics">
             </div>
 
             <!-- Right Benefits -->
@@ -387,7 +387,7 @@
 
                 <!-- Right Visual -->
                 <div class="strategy-visual">
-                    <img src="https://buydreamweb.com/wp-content/uploads/2025/09/work11-img1.webp" alt="Strategy Success" class="visual-image">
+                    <img src="/images/web8.webp" alt="Strategy Success" class="visual-image">
                 </div>
             </div>
         </div>
@@ -428,7 +428,7 @@
                     </p>
                     <div class="client-info">
                         <div class="client-avatar">
-                            <img src="https://buydreamweb.com/wp-content/uploads/2025/09/tes1-smoll-image1.webp" alt="John D">
+                            <img src="/images/tes1.webp" alt="John D">
                         </div>
                         <div class="client-details">
                             <h4>John D</h4>
@@ -453,7 +453,7 @@
                     </p>
                     <div class="client-info">
                         <div class="client-avatar">
-                            <img src="https://buydreamweb.com/wp-content/uploads/2025/09/tes1-smoll-image2.webp" alt="Lisa K">
+                            <img src="/images/tes2.webp" alt="Lisa K">
                         </div>
                         <div class="client-details">
                             <h4>Lisa K</h4>
@@ -478,7 +478,7 @@
                     </p>
                     <div class="client-info">
                         <div class="client-avatar">
-                            <img src="https://buydreamweb.com/wp-content/uploads/2025/09/tes1-smoll-image3.webp" alt="Mark T">
+                            <img src="/images/tes3.webp" alt="Mark T">
                         </div>
                         <div class="client-details">
                             <h4>Mark T</h4>
@@ -491,7 +491,7 @@
             <!-- Right Visual -->
             <div class="testimonial-visual">
                 <div class="visual-wrapper">
-                    <img src="https://img.freepik.com/free-photo/cheerful-woman-with-speech-bubble_53876-119706.jpg?semt=ais_incoming&w=740&q=80" alt="Happy Clients">
+                    <img src="/images/web7.jpg" alt="Happy Clients">
                     <div class="visual-overlay">
                         <div class="rating-badge">
                             <i class="fas fa-star"></i>
@@ -520,19 +520,28 @@
             </p>
 
             <form class="contact-form" @submit.prevent="handleContactSubmit">
-                <input type="text" placeholder="Enter your name" required>
-                <input type="email" placeholder="Enter your email" required>
-                <input type="tel" placeholder="Enter your phone number" required>
+                <input type="text" placeholder="Enter your full name" v-model="contactForm.full_name" required>
+                <input type="email" placeholder="Enter your email" v-model="contactForm.email" required>
+                <input type="tel" placeholder="Enter your phone number" v-model="contactForm.phone">
+                <input type="text" placeholder="Company name (optional)" v-model="contactForm.company">
+                <textarea placeholder="Tell us about your project..." v-model="contactForm.notes" rows="3"></textarea>
 
-                <button type="submit" class="quote-btn">
-                    Get Price Quote
+                <button type="submit" class="quote-btn" :disabled="isSubmitting">
+                    <template v-if="isSubmitting">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        Submitting...
+                    </template>
+                    <template v-else>
+                        <i class="fas fa-fire"></i>
+                        Get Price Quote
+                    </template>
                 </button>
             </form>
         </div>
 
         <!-- Right Visual -->
         <div class="contact-visual">
-            <img src="https://buydreamweb.com/wp-content/uploads/2025/09/contact4-image-768x841-1.webp" alt="Team Meeting" class="visual-image">
+            <img src="/images/web9.webp" alt="Team Meeting" class="visual-image">
         </div>
     </div>
 </section>
@@ -627,41 +636,63 @@ export default {
             currentTranslate: 0,
             prevTranslate: 0,
             animationID: null,
-            scrollTimeout: null
+            scrollTimeout: null,
+            contactForm: {
+                full_name: '',
+                email: '',
+                phone: '',
+                company: '',
+                notes: ''
+            },
+            isSubmitting: false
         }
     },
     mounted() {
         this.initSlider();
     },
     methods: {
-        handleContactSubmit(e) {
-            e.preventDefault();
-
+        async handleContactSubmit() {
+            this.isSubmitting = true;
+            try {
+                const response = await fetch('https://jaexlfmjjzpahdmlvhii.supabase.co/functions/v1/submit-lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(this.contactForm)
+                });
+                const result = await response.json();
+                if (result.success) {
+                    this.showNotification('Thank you! We\'ll be in touch soon.', 'success');
+                    this.contactForm = {
+                        full_name: '',
+                        email: '',
+                        phone: '',
+                        company: '',
+                        notes: ''
+                    };
+                } else {
+                    this.showNotification('Something went wrong. Please try again.', 'error');
+                }
+            } catch (error) {
+                this.showNotification('Network error. Please try again.', 'error');
+            } finally {
+                this.isSubmitting = false;
+            }
+        },
+        showNotification(message, type) {
             const notification = document.createElement('div');
-            notification.style.cssText = `
-        position: fixed;
-        top: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: linear-gradient(90deg, #22d3ee, #a855f7);
-        color: white;
-        padding: 18px 40px;
-        border-radius: 9999px;
-        font-weight: 600;
-        box-shadow: 0 20px 40px rgba(34, 211, 238, 0.4);
-        z-index: 9999;
-      `;
-            notification.innerHTML = `✅ Thank you! Your request has been received.<br>We'll contact you shortly.`;
-
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
             document.body.appendChild(notification);
-
+            setTimeout(() => notification.classList.add('show'), 10);
             setTimeout(() => {
-                notification.style.transition = 'all 0.6s ease';
-                notification.style.opacity = '0';
-                setTimeout(() => notification.remove(), 700);
-            }, 3200);
-
-            e.target.reset();
+                notification.classList.remove('show');
+                setTimeout(() => notification.remove(), 300);
+            }, 4000);
         },
         toggleFAQ(element) {
             const answer = element.target.nextElementSibling;
@@ -4109,6 +4140,97 @@ body {
 @media (max-width: 480px) {
     .testimonial-card {
         min-height: 100%;
+    }
+}
+
+/* Textarea styles */
+.contact-form textarea {
+    padding: 20px 26px;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    font-size: 1.05rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact-form textarea:focus {
+    border-color: #a855f7;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.15);
+    transform: translateY(-2px);
+}
+
+.contact-form textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* Disabled button state */
+.quote-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.quote-btn:disabled:hover {
+    transform: none !important;
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 9999;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-weight: 500;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.notification-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.notification-success .notification-content i {
+    font-size: 1.2rem;
+}
+
+.notification-error {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.notification-error .notification-content i {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .notification {
+        top: 20px;
+        right: 20px;
+        left: 20px;
+        transform: translateY(-100px);
+    }
+    
+    .notification.show {
+        transform: translateY(0);
     }
 }
 </style>
