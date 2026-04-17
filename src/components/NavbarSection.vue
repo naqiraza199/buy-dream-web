@@ -54,7 +54,7 @@
 
     <i class="fas fa-bars hamburger" id="hamburger" @click="toggleMobileMenu"></i>
   </nav>
-
+ 
   <!-- Mobile Overlay -->
   <div class="mobile-overlay" :class="{ active: isMobileMenuOpen }" @click="closeMobileMenu"></div>
 

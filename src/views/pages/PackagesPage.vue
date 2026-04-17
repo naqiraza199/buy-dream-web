@@ -25,53 +25,74 @@
   <!-- Pricing Section -->
   <section class="pricing-section">
     <div class="pricing-container">
-      <!-- Category Tabs -->
-      <div class="category-tabs">
-        <button 
-          v-for="tab in tabs" 
-          :key="tab.id"
-          class="tab-btn" 
-          :class="{ active: activeTab === tab.id }" 
-          @click="activeTab = tab.id">
-          <i :class="tab.icon"></i>
-          {{ tab.name }}
-        </button>
+      <!-- Loading State -->
+      <div v-if="loading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading packages...</p>
       </div>
 
-      <!-- Pricing Grid -->
-      <div class="pricing-grid">
-        <div 
-          v-for="(pkg, index) in filteredPackages" 
-          :key="index"
-          class="pricing-card"
-          :class="{ popular: pkg.popular }">
-          <div v-if="pkg.badge" class="card-badge" :class="pkg.badgeType">
-            {{ pkg.badge }}
-          </div>
-          <div class="card-header">
-            <h3>{{ pkg.name }}</h3>
-            <p class="card-description">{{ pkg.description }}</p>
-          </div>
-          <div class="price-section">
-            <span class="currency">$</span>
-            <span class="amount">{{ pkg.price }}</span>
-            <span v-if="pkg.oldPrice" class="old-price">${{ pkg.oldPrice }}</span>
-          </div>
-          <button class="select-btn" @click="selectPlan(pkg.name)">
-            <i class="fas fa-rocket"></i>
-            Get Started
-          </button>
-          <ul class="features-list">
-            <li v-for="(feature, fIndex) in pkg.features" :key="fIndex">
-              <i class="fas fa-check-circle"></i>
-              {{ feature }}
-            </li>
-          </ul>
-          <a href="#" class="view-details">
-            View Details <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
+      <!-- Error State -->
+      <div v-else-if="error" class="error-state">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p>{{ error }}</p>
       </div>
+
+      <template v-else>
+        <!-- Category Tabs -->
+        <div class="category-tabs">
+          <button 
+            v-for="tab in tabs" 
+            :key="tab.id"
+            class="tab-btn" 
+            :class="{ active: activeTab === tab.id }" 
+            @click="activeTab = tab.id">
+            <i :class="tab.icon"></i>
+            {{ tab.name }}
+          </button>
+        </div>
+
+        <!-- Pricing Grid -->
+        <div class="pricing-grid">
+          <div 
+            v-for="(pkg, index) in filteredPackages" 
+            :key="pkg.id || index"
+            class="pricing-card"
+            :class="{ popular: pkg.popular }">
+            <div v-if="pkg.badge" class="card-badge" :class="pkg.badgeType">
+              {{ pkg.badge }}
+            </div>
+            <div class="card-header">
+              <h3>{{ pkg.name }}</h3>
+              <p class="card-description">{{ pkg.description }}</p>
+            </div>
+            <div class="price-section">
+              <span class="currency">$</span>
+              <span class="amount">{{ pkg.price }}</span>
+              <span v-if="pkg.oldPrice" class="old-price">${{ pkg.oldPrice }}</span>
+            </div>
+            <button class="select-btn" @click="selectPlan(pkg)">
+              <i class="fas fa-rocket"></i>
+              Get Started
+            </button>
+            <ul class="features-list">
+              <li v-for="(feature, fIndex) in pkg.features" :key="fIndex">
+                <i class="fas fa-check-circle"></i>
+                {{ feature }}
+              </li>
+            </ul>
+            <a 
+              v-if="pkg.checkout_url && pkg.checkout_url !== '#'"
+              :href="pkg.checkout_url" 
+              target="_blank"
+              class="view-details">
+              Checkout <i class="fas fa-external-link-alt"></i>
+            </a>
+            <a v-else href="#" class="view-details">
+              View Details <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </template>
     </div>
   </section>
 
@@ -144,61 +165,83 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import FooterSection from '@/components/FooterSection.vue'
 import NavbarSection from '@/components/NavbarSection.vue'
 
-const activeTab = ref('all')
+const activeTab = ref('')
 const openFaq = ref(null)
+const packages = ref([])
+const tabs = ref([])
+const loading = ref(true)
+const error = ref(null)
 
-const tabs = [
-  { id: 'all', name: 'All', icon: 'fas fa-th-large' },
-  { id: 'ecommerce', name: 'Ecommerce', icon: 'fas fa-shopping-cart' },
-  { id: 'website', name: 'Website', icon: 'fas fa-globe' },
-  { id: 'logo', name: 'Logo', icon: 'fas fa-pen-nib' },
-  { id: 'app', name: 'App', icon: 'fas fa-mobile-alt' },
-  { id: 'marketing', name: 'Marketing', icon: 'fas fa-bullhorn' }
-]
+onMounted(async () => {
+  try {
+    const response = await fetch('https://jaexlfmjjzpahdmlvhii.supabase.co/functions/v1/get-services')
+    const data = await response.json()
+    
+    if (data.success && data.services) {
+      packages.value = data.services.map(pkg => ({
+        id: pkg.id,
+        name: pkg.name,
+        description: pkg.description,
+        price: pkg.sale_price || pkg.price,
+        regular_price: pkg.regular_price,
+        oldPrice: pkg.regular_price && pkg.regular_price > (pkg.sale_price || pkg.price) ? pkg.regular_price : null,
+        popular: pkg.is_popular || false,
+        recommended: pkg.is_recommended || false,
+        badge: pkg.is_popular ? 'Most Popular' : (pkg.is_recommended ? 'Recommended' : null),
+        badgeType: pkg.is_popular ? 'popular' : (pkg.is_recommended ? 'recommended' : ''),
+        features: pkg.features || [],
+        category: pkg.category || 'General',
+        checkout_url: pkg.checkout_url || '#'
+      }))
 
-const packages = {
-  all: [
-    { name: 'Starter', description: 'Perfect for small businesses', price: '210', oldPrice: '250', popular: false, badge: null, badgeType: '', features: ['3 Pages', 'Responsive Design', 'Contact Form', 'Basic SEO'] },
-    { name: 'Professional', description: 'Best for growing businesses', price: '520', oldPrice: '590', popular: true, badge: 'Most Popular', badgeType: 'popular', features: ['10 Pages', 'Custom Design', 'Speed Optimization', 'Advanced SEO'] },
-    { name: 'Premium', description: 'For enterprise needs', price: '1050', oldPrice: '1150', popular: false, badge: 'Recommended', badgeType: 'recommended', features: ['Unlimited Pages', 'Full UI/UX Design', 'Blog Integration', 'Priority Support'] }
-  ],
-  ecommerce: [
-    { name: 'Basic Store', description: 'Start selling online', price: '450', oldPrice: '520', popular: false, badge: null, badgeType: '', features: ['Up to 50 Products', 'Payment Gateway', 'Basic Inventory', 'Mobile Responsive'] },
-    { name: 'Growth Store', description: 'Scale your business', price: '890', oldPrice: '990', popular: true, badge: 'Most Popular', badgeType: 'popular', features: ['Up to 500 Products', 'Advanced Analytics', 'Multi-currency', 'Email Marketing'] },
-    { name: 'Enterprise', description: 'Full e-commerce solution', price: '1850', oldPrice: '2100', popular: false, badge: 'Recommended', badgeType: 'recommended', features: ['Unlimited Products', 'Custom API', 'Dedicated Support', 'Advanced Reports'] }
-  ],
-  website: [
-    { name: 'Landing Page', description: 'Single page solution', price: '180', oldPrice: '220', popular: false, badge: null, badgeType: '', features: ['Single Page Design', 'Mobile Responsive', 'Contact Form', 'Basic SEO'] },
-    { name: 'Business Website', description: 'Grow your presence', price: '480', oldPrice: '550', popular: true, badge: 'Most Popular', badgeType: 'popular', features: ['Up to 8 Pages', 'SEO Optimized', 'Social Media Integration', 'Analytics'] },
-    { name: 'Corporate', description: 'Full corporate solution', price: '980', oldPrice: '1100', popular: false, badge: 'Recommended', badgeType: 'recommended', features: ['Unlimited Pages', 'Custom CMS', 'Multi-language', 'Advanced Security'] }
-  ],
-  logo: [
-    { name: 'Basic Logo', description: 'Simple brand identity', price: '80', oldPrice: '100', popular: false, badge: null, badgeType: '', features: ['2 Concepts', '2 Revisions', 'High-Res Files', 'PNG & JPG'] },
-    { name: 'Professional', description: 'Complete brand solution', price: '150', oldPrice: '180', popular: true, badge: 'Most Popular', badgeType: 'popular', features: ['5 Concepts', 'Unlimited Revisions', 'Brand Guidelines', 'Vector Files'] },
-    { name: 'Complete Branding', description: 'Full brand package', price: '320', oldPrice: '380', popular: false, badge: 'Recommended', badgeType: 'recommended', features: ['8 Concepts', 'Business Cards', 'Social Media Kit', 'Letterhead'] }
-  ],
-  app: [
-    { name: 'MVP App', description: 'Launch your idea', price: '1200', oldPrice: '1400', popular: false, badge: null, badgeType: '', features: ['Single Platform', 'Basic Features', '3 Months Support', 'App Store Submission'] },
-    { name: 'Cross-Platform', description: 'Reach all users', price: '2500', oldPrice: '2900', popular: true, badge: 'Most Popular', badgeType: 'popular', features: ['iOS & Android', 'Advanced Features', '6 Months Support', 'Push Notifications'] },
-    { name: 'Enterprise App', description: 'Full-scale solution', price: '4500', oldPrice: '5200', popular: false, badge: 'Recommended', badgeType: 'recommended', features: ['Custom Backend', 'API Integration', '12 Months Support', 'Dedicated Manager'] }
-  ],
-  marketing: [
-    { name: 'Starter', description: 'Begin your journey', price: '300', oldPrice: '350', popular: false, badge: null, badgeType: '', features: ['Social Media Mgmt', 'Basic SEO', 'Monthly Report', 'Content Planning'] },
-    { name: 'Growth', description: 'Accelerate results', price: '650', oldPrice: '750', popular: true, badge: 'Most Popular', badgeType: 'popular', features: ['PPC Campaigns', 'Advanced SEO', 'Content Marketing', 'Weekly Reports'] },
-    { name: 'Premium', description: 'Full digital strategy', price: '1200', oldPrice: '1400', popular: false, badge: 'Recommended', badgeType: 'recommended', features: ['Full Digital Strategy', 'Email Marketing', 'Analytics Dashboard', 'Dedicated Manager'] }
-  ]
+      const categories = [...new Set(packages.value.map(p => p.category))]
+      tabs.value = categories.map(cat => ({
+        id: cat.toLowerCase().replace(/\s+/g, '-'),
+        name: cat,
+        icon: getCategoryIcon(cat)
+      }))
+      
+      if (tabs.value.length > 0) {
+        activeTab.value = tabs.value[0].id
+      }
+    }
+  } catch (err) {
+    error.value = err.message
+    console.error('Failed to fetch packages:', err)
+  } finally {
+    loading.value = false
+  }
+})
+
+const getCategoryIcon = (category) => {
+  const icons = {
+    'Overview': 'fas fa-th-large',
+    'Ecommerce': 'fas fa-shopping-cart',
+    'Website': 'fas fa-globe',
+    'Logo': 'fas fa-pen-nib',
+    'App': 'fas fa-mobile-alt',
+    'Marketing': 'fas fa-bullhorn'
+  }
+  return icons[category] || 'fas fa-layer-group'
 }
 
 const filteredPackages = computed(() => {
-  return packages[activeTab.value] || packages.all
+  if (activeTab.value === 'all') return packages.value
+  return packages.value.filter(pkg => 
+    pkg.category.toLowerCase().replace(/\s+/g, '-') === activeTab.value
+  )
 })
 
-const selectPlan = (plan) => {
-  alert(`You selected the ${plan} plan! Our team will contact you shortly.`)
+const selectPlan = (pkg) => {
+  if (pkg.checkout_url && pkg.checkout_url !== '#') {
+    window.open(pkg.checkout_url, '_blank')
+  } else {
+    alert(`You selected the ${pkg.name} plan! Our team will contact you shortly.`)
+  }
 }
 
 const toggleFaq = (index) => {
@@ -841,5 +884,45 @@ const faqs = [
   .price-section .amount {
     font-size: 2.8rem;
   }
+}
+
+/* Loading & Error States */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  color: #64748b;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(168, 85, 247, 0.1);
+  border-top: 4px solid #a855f7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  color: #ef4444;
+  text-align: center;
+}
+
+.error-state i {
+  font-size: 3rem;
+  margin-bottom: 16px;
 }
 </style>

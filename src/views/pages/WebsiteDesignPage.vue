@@ -249,61 +249,52 @@
             <h2>Choose The <span>Pricing Plan</span></h2>
         </div>
 
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <h3>Starter</h3>
-                <div class="price">
-                    <span class="currency">$</span>
-                    <span class="amount">210</span>
-                    <span class="old-price">$250</span>
-                </div>
-                <button class="pricing-btn" @click="selectPlan('Starter')">
-                    <i class="fas fa-fire"></i> Get Started
-                </button>
-                <ul class="features">
-                    <li><i class="fas fa-check"></i> 3 Pages</li>
-                    <li><i class="fas fa-check"></i> Modern & Responsive Design</li>
-                    <li><i class="fas fa-check"></i> Contact Form Integration</li>
-                </ul>
-                <a href="#" class="view-more">View More</a>
-            </div>
+        <!-- Loading State -->
+        <div v-if="pricingLoading" class="loading-state">
+            <div class="spinner"></div>
+            <p>Loading packages...</p>
+        </div>
 
-            <div class="pricing-card popular">
-                <div class="popular-badge">Most Popular</div>
-                <h3>Professional</h3>
-                <div class="price">
-                    <span class="currency">$</span>
-                    <span class="amount">520</span>
-                    <span class="old-price">$590</span>
-                </div>
-                <button class="pricing-btn" @click="selectPlan('Professional')">
-                    <i class="fas fa-fire"></i> Get Started
-                </button>
-                <ul class="features">
-                    <li><i class="fas fa-check"></i> Up to 10 Pages</li>
-                    <li><i class="fas fa-check"></i> Custom Design (Figma or PSD)</li>
-                    <li><i class="fas fa-check"></i> Speed Optimization</li>
-                </ul>
-                <a href="#" class="view-more">View More</a>
-            </div>
+        <!-- Error State -->
+        <div v-else-if="pricingError" class="error-state">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>{{ pricingError }}</p>
+        </div>
 
-            <div class="pricing-card">
-                <div class="recommended-badge">Recommended</div>
-                <h3>Premium</h3>
+        <!-- Pricing Grid -->
+        <div v-else class="pricing-grid">
+            <div 
+                v-for="(pkg, index) in websitePackages" 
+                :key="pkg.id || index"
+                class="pricing-card"
+                :class="{ popular: pkg.popular }">
+                <div v-if="pkg.badge" :class="pkg.badgeType">
+                    {{ pkg.badge }}
+                </div>
+                <h3>{{ pkg.name }}</h3>
                 <div class="price">
                     <span class="currency">$</span>
-                    <span class="amount">1050</span>
-                    <span class="old-price">$1150</span>
+                    <span class="amount">{{ pkg.price }}</span>
+                    <span v-if="pkg.oldPrice" class="old-price">${{ pkg.oldPrice }}</span>
                 </div>
-                <button class="pricing-btn" @click="selectPlan('Premium')">
+                <button class="pricing-btn" @click="selectPlan(pkg)">
                     <i class="fas fa-fire"></i> Get Started
                 </button>
                 <ul class="features">
-                    <li><i class="fas fa-check"></i> Unlimited Pages</li>
-                    <li><i class="fas fa-check"></i> Full Custom UI/UX Design</li>
-                    <li><i class="fas fa-check"></i> Blog Integration</li>
+                    <li v-for="(feature, fIndex) in pkg.features" :key="fIndex">
+                        <i class="fas fa-check"></i> {{ feature }}
+                    </li>
                 </ul>
-                <a href="#" class="view-more">View More</a>
+                <a 
+                    v-if="pkg.checkout_url && pkg.checkout_url !== '#'"
+                    :href="pkg.checkout_url" 
+                    target="_blank"
+                    class="view-more">
+                    Checkout <i class="fas fa-arrow-right"></i>
+                </a>
+                <a v-else href="#" class="view-more">
+                    View More <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </div>
@@ -644,13 +635,50 @@ export default {
                 company: '',
                 notes: ''
             },
-            isSubmitting: false
+            isSubmitting: false,
+            // Pricing state
+            websitePackages: [],
+            pricingLoading: true,
+            pricingError: null
         }
     },
     mounted() {
         this.initSlider();
+        this.fetchWebsitePackages();
     },
     methods: {
+        async fetchWebsitePackages() {
+            try {
+                const response = await fetch('https://jaexlfmjjzpahdmlvhii.supabase.co/functions/v1/get-services')
+                const data = await response.json()
+                
+                if (data.success && data.services) {
+                    // Filter only Website category packages
+                    this.websitePackages = data.services
+                        .filter(pkg => pkg.category && pkg.category.toLowerCase() === 'website')
+                        .map(pkg => ({
+                            id: pkg.id,
+                            name: pkg.name,
+                            description: pkg.description,
+                            price: pkg.sale_price || pkg.price,
+                            regular_price: pkg.regular_price,
+                            oldPrice: pkg.regular_price && pkg.regular_price > (pkg.sale_price || pkg.price) ? pkg.regular_price : null,
+                            popular: pkg.is_popular || false,
+                            recommended: pkg.is_recommended || false,
+                            badge: pkg.is_popular ? 'Most Popular' : (pkg.is_recommended ? 'Recommended' : null),
+                            badgeType: pkg.is_popular ? 'popular-badge' : (pkg.is_recommended ? 'recommended-badge' : ''),
+                            features: pkg.features || [],
+                            category: pkg.category || 'General',
+                            checkout_url: pkg.checkout_url || '#'
+                        }))
+                }
+            } catch (err) {
+                this.pricingError = err.message
+                console.error('Failed to fetch packages:', err)
+            } finally {
+                this.pricingLoading = false
+            }
+        },
         async handleContactSubmit() {
             this.isSubmitting = true;
             try {
@@ -709,8 +737,12 @@ export default {
                 answer.classList.add('active');
             }
         },
-        selectPlan(plan) {
-            alert(`You selected the ${plan} plan!`);
+        selectPlan(pkg) {
+            if (pkg.checkout_url && pkg.checkout_url !== '#') {
+                window.open(pkg.checkout_url, '_blank')
+            } else {
+                alert(`You selected the ${pkg.name} plan!`)
+            }
         },
         showQuote() {
             alert('Get Started clicked!');
@@ -1351,7 +1383,7 @@ body {
     overflow: hidden;
     display: flex;
     align-items: center;
-    padding: 0 6%;
+    padding: 160px 6%;
 }
 
 .hero-container {
@@ -2576,6 +2608,46 @@ body {
     color: #a855f7;
     text-decoration: none;
     font-weight: 500;
+}
+
+/* Pricing Loading & Error States */
+.loading-state, .error-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.loading-state p, .error-state p {
+    color: #64748b;
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(168, 85, 247, 0.1);
+    border-top: 4px solid #a855f7;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-state i {
+    font-size: 3rem;
+    color: #ef4444;
+    margin-bottom: 16px;
+}
+
+.error-state p {
+    color: #ef4444 !important;
 }
 
 .success-section {

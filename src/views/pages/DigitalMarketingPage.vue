@@ -430,66 +430,49 @@
             <p>Select the perfect package for your social media marketing needs</p>
         </div>
 
-        <div class="pricing-grid">
+        <!-- Loading State -->
+        <div v-if="pricingLoading" class="loading-state">
+            <div class="spinner"></div>
+            <p>Loading packages...</p>
+        </div>
+
+        <!-- Error State -->
+        <div v-else-if="pricingError" class="error-state">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>{{ pricingError }}</p>
+        </div>
+
+        <!-- Pricing Grid -->
+        <div v-else class="pricing-grid">
             
             <!-- Basic Plan -->
-            <div class="pricing-card">
-                <h3>Basic</h3>
+            <div 
+                v-for="(pkg, index) in marketingPackages" 
+                :key="pkg.id || index"
+                class="pricing-card"
+                :class="{ popular: pkg.popular }">
+                <div v-if="pkg.badge" :class="pkg.badgeType">
+                    {{ pkg.badge }}
+                </div>
+                <h3>{{ pkg.name }}</h3>
                 <div class="price">
                     <span class="currency">$</span>
-                    <span class="amount">250</span>
+                    <span class="amount">{{ pkg.price }}</span>
                 </div>
-                <a href="#" class="pricing-btn main-btn">
+                <a 
+                    v-if="pkg.checkout_url && pkg.checkout_url !== '#'"
+                    :href="pkg.checkout_url" 
+                    target="_blank"
+                    class="pricing-btn main-btn">
+                    <i class="fas fa-fire"></i> Purchase It Now
+                </a>
+                <a v-else href="#" class="pricing-btn main-btn">
                     <i class="fas fa-fire"></i> Purchase It Now
                 </a>
                 <ul class="features-list">
-                    <li><i class="fas fa-check"></i> 2 Social Media Platforms (Facebook + Instagram)</li>
-                    <li><i class="fas fa-check"></i> 12 Posts per Month (Design + Captions)</li>
-                    <li><i class="fas fa-check"></i> Hashtag Research & Scheduling</li>
-                    <li><i class="fas fa-check"></i> Page Optimization (Bio, Profile, CTA Setup)</li>
-                    <li><i class="fas fa-check"></i> Monthly Performance Report</li>
-                </ul>
-            </div>
-
-            <!-- Professional Plan (Most Popular) -->
-            <div class="pricing-card popular">
-                <div class="popular-badge">Most Popular</div>
-                <h3>Professional</h3>
-                <div class="price">
-                    <span class="currency">$</span>
-                    <span class="amount">520</span>
-                </div>
-                <a href="#" class="pricing-btn main-btn">
-                    <i class="fas fa-fire"></i> Purchase It Now
-                </a>
-                <ul class="features-list">
-                    <li><i class="fas fa-check"></i> 3-4 Platforms (Facebook, Instagram, LinkedIn, TikTok)</li>
-                    <li><i class="fas fa-check"></i> 20-25 Posts / Month</li>
-                    <li><i class="fas fa-check"></i> Paid Ad Setup (Facebook / Instagram Ads)</li>
-                    <li><i class="fas fa-check"></i> Content Calendar + Strategy</li>
-                    <li><i class="fas fa-check"></i> Engagement & Comment Management</li>
-                    <li><i class="fas fa-check"></i> Competitor Analysis + Monthly Insights</li>
-                </ul>
-            </div>
-
-            <!-- Premium Plan -->
-            <div class="pricing-card">
-                <h3>Premium</h3>
-                <div class="price">
-                    <span class="currency">$</span>
-                    <span class="amount">1,300</span>
-                </div>
-                <a href="#" class="pricing-btn main-btn">
-                    <i class="fas fa-fire"></i> Purchase It Now
-                </a>
-                <ul class="features-list">
-                    <li><i class="fas fa-check"></i> All Major Platforms (Facebook, Instagram, LinkedIn, X, YouTube, TikTok)</li>
-                    <li><i class="fas fa-check"></i> 30+ Custom Posts / Reels / Stories</li>
-                    <li><i class="fas fa-check"></i> Full Ad Campaign Management (Meta + Google Ads)</li>
-                    <li><i class="fas fa-check"></i> Retargeting + Conversion Tracking</li>
-                    <li><i class="fas fa-check"></i> Influencer Collaboration Strategy</li>
-                    <li><i class="fas fa-check"></i> Monthly Marketing Report & Strategy Call</li>
-                    <li><i class="fas fa-check"></i> 24/7 Priority Support</li>
+                    <li v-for="(feature, fIndex) in pkg.features" :key="fIndex">
+                        <i class="fas fa-check"></i> {{ feature }}
+                    </li>
                 </ul>
             </div>
 
@@ -599,7 +582,7 @@ to you as possible</h2>
 <script>
 import FooterSection from '@/components/FooterSection.vue';
 import NavbarSection from '@/components/NavbarSection.vue';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 export default {
   name: 'DigitalMarketingPage',
@@ -616,6 +599,45 @@ export default {
       notes: ''
     });
     const isSubmitting = ref(false);
+
+    // Pricing state
+    const marketingPackages = ref([]);
+    const pricingLoading = ref(true);
+    const pricingError = ref(null);
+
+    // Fetch Marketing packages from API
+    const fetchMarketingPackages = async () => {
+      try {
+        const response = await fetch('https://jaexlfmjjzpahdmlvhii.supabase.co/functions/v1/get-services')
+        const data = await response.json()
+        
+        if (data.success && data.services) {
+          // Filter only Marketing category packages
+          marketingPackages.value = data.services
+            .filter(pkg => pkg.category && pkg.category.toLowerCase() === 'marketing')
+            .map(pkg => ({
+              id: pkg.id,
+              name: pkg.name,
+              description: pkg.description,
+              price: pkg.sale_price || pkg.price,
+              regular_price: pkg.regular_price,
+              oldPrice: pkg.regular_price && pkg.regular_price > (pkg.sale_price || pkg.price) ? pkg.regular_price : null,
+              popular: pkg.is_popular || false,
+              recommended: pkg.is_recommended || false,
+              badge: pkg.is_popular ? 'Most Popular' : (pkg.is_recommended ? 'Recommended' : null),
+              badgeType: pkg.is_popular ? 'popular-badge' : (pkg.is_recommended ? 'recommended-badge' : ''),
+              features: pkg.features || [],
+              category: pkg.category || 'General',
+              checkout_url: pkg.checkout_url || '#'
+            }))
+        }
+      } catch (err) {
+        pricingError.value = err.message
+        console.error('Failed to fetch packages:', err)
+      } finally {
+        pricingLoading.value = false
+      }
+    };
 
     const handleQuoteSubmit = async () => {
       isSubmitting.value = true;
@@ -656,10 +678,17 @@ export default {
       }, 4000);
     };
 
+    onMounted(() => {
+      fetchMarketingPackages();
+    });
+
     return {
       quoteForm,
       handleQuoteSubmit,
-      isSubmitting
+      isSubmitting,
+      marketingPackages,
+      pricingLoading,
+      pricingError
     };
   },
   methods: {
@@ -694,7 +723,6 @@ export default {
 
         * {
             margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
@@ -2401,7 +2429,6 @@ export default {
     top: -14px;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(135deg, var(--pink), var(--primary));
     color: white;
     padding: 6px 26px;
     border-radius: 9999px;
@@ -2457,6 +2484,46 @@ export default {
 
 .features-list li i {
     color: var(--primary);
+}
+
+/* Pricing Loading & Error States */
+.loading-state, .error-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.loading-state p, .error-state p {
+    color: var(--gray);
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(168, 85, 247, 0.1);
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-state i {
+    font-size: 3rem;
+    color: #ef4444;
+    margin-bottom: 16px;
+}
+
+.error-state p {
+    color: #ef4444 !important;
 }
 
 /* Responsive */

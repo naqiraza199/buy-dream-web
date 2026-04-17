@@ -571,41 +571,53 @@
             <div class="section-title">
                 <h2>Choose The <span>SEO Plan</span></h2>
             </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Starter SEO</h3>
-                    <div class="price"><span class="currency">$</span><span class="amount">299</span><span
-                            class="old-price">$399</span></div><button class="pricing-btn"><i class="fas fa-fire"></i>
-                        Get Started</button>
+
+            <!-- Loading State -->
+            <div v-if="pricingLoading" class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading packages...</p>
+            </div>
+
+            <!-- Error State -->
+            <div v-else-if="pricingError" class="error-state">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>{{ pricingError }}</p>
+            </div>
+
+            <!-- Pricing Grid -->
+            <div v-else class="pricing-grid">
+                <div 
+                    v-for="(pkg, index) in seoPackages" 
+                    :key="pkg.id || index"
+                    class="pricing-card"
+                    :class="{ popular: pkg.popular }">
+                    <div v-if="pkg.badge" :class="pkg.badgeType">
+                        {{ pkg.badge }}
+                    </div>
+                    <h3>{{ pkg.name }}</h3>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">{{ pkg.price }}</span>
+                        <span v-if="pkg.oldPrice" class="old-price">${{ pkg.oldPrice }}</span>
+                    </div>
+                    <button class="pricing-btn" @click="selectPlan(pkg)">
+                        <i class="fas fa-fire"></i> Get Started
+                    </button>
                     <ul class="features">
-                        <li><i class="fas fa-check"></i> 10 Target Keywords</li>
-                        <li><i class="fas fa-check"></i> On-Page SEO Optimization</li>
-                        <li><i class="fas fa-check"></i> Monthly Performance Report</li>
-                    </ul><a href="#" class="view-more">View More</a>
-                </div>
-                <div class="pricing-card popular">
-                    <div class="popular-badge">Most Popular</div>
-                    <h3>Professional SEO</h3>
-                    <div class="price"><span class="currency">$</span><span class="amount">599</span><span
-                            class="old-price">$749</span></div><button class="pricing-btn"><i class="fas fa-fire"></i>
-                        Get Started</button>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> 30 Target Keywords</li>
-                        <li><i class="fas fa-check"></i> Technical SEO Audit & Fixes</li>
-                        <li><i class="fas fa-check"></i> Content Strategy & Blog Posts</li>
-                    </ul><a href="#" class="view-more">View More</a>
-                </div>
-                <div class="pricing-card">
-                    <div class="recommended-badge">Recommended</div>
-                    <h3>Premium SEO</h3>
-                    <div class="price"><span class="currency">$</span><span class="amount">1199</span><span
-                            class="old-price">$1499</span></div><button class="pricing-btn"><i class="fas fa-fire"></i>
-                        Get Started</button>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> Unlimited Keywords</li>
-                        <li><i class="fas fa-check"></i> Full SEO Suite + Link Building</li>
-                        <li><i class="fas fa-check"></i> Weekly Reports & Strategy Calls</li>
-                    </ul><a href="#" class="view-more">View More</a>
+                        <li v-for="(feature, fIndex) in pkg.features" :key="fIndex">
+                            <i class="fas fa-check"></i> {{ feature }}
+                        </li>
+                    </ul>
+                    <a 
+                        v-if="pkg.checkout_url && pkg.checkout_url !== '#'"
+                        :href="pkg.checkout_url" 
+                        target="_blank"
+                        class="view-more">
+                        Checkout <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a v-else href="#" class="view-more">
+                        View More <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -785,6 +797,11 @@ import NavbarSection from '@/components/NavbarSection.vue';
 const quoteForm = ref({ full_name: '', email: '', phone: '', company: '', notes: '' })
 const isSubmitting = ref(false)
 
+// Pricing state
+const seoPackages = ref([])
+const pricingLoading = ref(true)
+const pricingError = ref(null)
+
 const handleQuoteSubmit = async () => {
   isSubmitting.value = true
   try {
@@ -831,6 +848,48 @@ const toggleFAQ = (btn) => {
   if (o) { btn.classList.add('active'); a.classList.add('active') }
 }
 
+// Fetch SEO packages from API
+const fetchSEOPackages = async () => {
+  try {
+    const response = await fetch('https://jaexlfmjjzpahdmlvhii.supabase.co/functions/v1/get-services')
+    const data = await response.json()
+    
+    if (data.success && data.services) {
+      // Filter only SEO category packages
+      seoPackages.value = data.services
+        .filter(pkg => pkg.category && pkg.category.toLowerCase() === 'seo')
+        .map(pkg => ({
+          id: pkg.id,
+          name: pkg.name,
+          description: pkg.description,
+          price: pkg.sale_price || pkg.price,
+          regular_price: pkg.regular_price,
+          oldPrice: pkg.regular_price && pkg.regular_price > (pkg.sale_price || pkg.price) ? pkg.regular_price : null,
+          popular: pkg.is_popular || false,
+          recommended: pkg.is_recommended || false,
+          badge: pkg.is_popular ? 'Most Popular' : (pkg.is_recommended ? 'Recommended' : null),
+          badgeType: pkg.is_popular ? 'popular-badge' : (pkg.is_recommended ? 'recommended-badge' : ''),
+          features: pkg.features || [],
+          category: pkg.category || 'General',
+          checkout_url: pkg.checkout_url || '#'
+        }))
+    }
+  } catch (err) {
+    pricingError.value = err.message
+    console.error('Failed to fetch packages:', err)
+  } finally {
+    pricingLoading.value = false
+  }
+}
+
+const selectPlan = (pkg) => {
+  if (pkg.checkout_url && pkg.checkout_url !== '#') {
+    window.open(pkg.checkout_url, '_blank')
+  } else {
+    alert(`🎉 You selected the ${pkg.name} Plan for SEO Services!\nOur team will contact you shortly.`)
+  }
+}
+
 export default {
     name: 'SeoPage',
     components: {
@@ -840,6 +899,7 @@ export default {
     setup() {
         onMounted(() => {
             window.toggleFAQ = toggleFAQ
+            fetchSEOPackages()
 
             // Tab buttons
             document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -881,7 +941,15 @@ export default {
                 window.addEventListener('resize', function () { bd(); go(Math.min(ci, gm())) });
             }
         })
-        return { quoteForm, handleQuoteSubmit, toggleFAQ }
+        return { 
+            quoteForm, 
+            handleQuoteSubmit, 
+            toggleFAQ, 
+            seoPackages, 
+            pricingLoading, 
+            pricingError,
+            selectPlan 
+        }
     }
 };
 
@@ -2039,6 +2107,46 @@ export default {
             color: #a855f7;
             text-decoration: none;
             font-weight: 500
+        }
+
+        /* Pricing Loading & Error States */
+        .loading-state, .error-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+            text-align: center
+        }
+
+        .loading-state p, .error-state p {
+            color: #64748b;
+            margin-top: 20px;
+            font-size: 1.1rem
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(168, 85, 247, .1);
+            border-top: 4px solid #a855f7;
+            border-radius: 50%;
+            animation: spin 1s linear infinite
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg) }
+            100% { transform: rotate(360deg) }
+        }
+
+        .error-state i {
+            font-size: 3rem;
+            color: #ef4444;
+            margin-bottom: 16px
+        }
+
+        .error-state p {
+            color: #ef4444 !important
         }
 
         .testimonials-cta-section {
