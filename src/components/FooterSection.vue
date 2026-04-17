@@ -7,7 +7,7 @@
     <div class="footer-main">
       <div class="footer-brand">
         <router-link to="/" class="footer-logo">
-          <img width="200" src="https://buydreamweb.com/wp-content/uploads/2025/10/image-18-1024x435.webp" alt="">
+          <img width="200" src="/images/bdy2.webp" alt="Buy Dream Web">
         </router-link>
         <p>We are a full-service web development agency helping startups, SMEs, and enterprises thrive online...</p>
         <div class="footer-social">

@@ -3,7 +3,7 @@
   <nav>
     <router-link to="/" class="logo">
       <div>
-        <img width="150" src="https://buydreamweb.com/wp-content/uploads/2025/07/Buy-Dream-Web-1-1024x435.webp" alt="">
+        <img width="150" src="/images/bdy1.webp" alt="">
       </div>
     </router-link>
 
